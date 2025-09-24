@@ -1,0 +1,226 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "rev:shotgun_s_bullet",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"runtime_identifier": "snowball",
+			"is_experimental": false
+		},
+		"component_groups": {
+			"rev:decay1": {
+				"minecraft:timer": {
+					"time": 0.01,
+					"time_down_event": {
+						"event": "rev:decay2"
+					}
+				},
+				"minecraft:projectile": {
+					"on_hit": {
+						"impact_damage": {
+							"damage": 10,
+							"knockback": true
+						},
+						"stick_in_ground": {
+							"shake_time": 0
+						},
+						"particle_on_hit": {
+							"particle_type": "explode",
+							"num_particles": 10,
+							"on_entity_hit": true,
+							"on_other_hit": true
+						}
+					},
+					"should_bounce": true,
+					"multiple_targets": true,
+					"power": 3,
+					"gravity": 0,
+					"inertia": 0.6,
+					"anchor": 1,
+					"offset": [
+						0,
+						0,
+						0
+					],
+					"catch_fire": false
+				}
+			},
+			"rev:decay2": {
+				"minecraft:timer": {
+					"time": 0.02,
+					"time_down_event": {
+						"event": "rev:decay3"
+					}
+				},
+				"minecraft:projectile": {
+					"on_hit": {
+						"impact_damage": {
+							"damage": [
+								4,
+								6
+							],
+							"knockback": true
+						},
+						"particle_on_hit": {
+							"particle_type": "explode",
+							"num_particles": 6,
+							"on_entity_hit": true,
+							"on_other_hit": true
+						}
+					},
+					"should_bounce": true,
+					"multiple_targets": true,
+					"power": 3,
+					"gravity": 0,
+					"inertia": 0.8,
+					"anchor": 1,
+					"offset": [
+						0,
+						0,
+						0
+					],
+					"catch_fire": false
+				}
+			},
+			"rev:decay3": {
+				"minecraft:timer": {
+					"time": 0.2,
+					"time_down_event": {
+						"event": "rev:die"
+					}
+				},
+				"minecraft:projectile": {
+					"on_hit": {
+						"impact_damage": {
+							"damage": 2,
+							"knockback": true
+						},
+						"stick_in_ground": {
+							"shake_time": 0
+						},
+						"particle_on_hit": {
+							"particle_type": "explode",
+							"num_particles": 10,
+							"on_entity_hit": true,
+							"on_other_hit": true
+						}
+					},
+					"should_bounce": true,
+					"multiple_targets": true,
+					"power": 3,
+					"gravity": 0,
+					"inertia": 0.1,
+					"anchor": 1,
+					"offset": [
+						0,
+						0,
+						0
+					],
+					"catch_fire": false
+				}
+			}
+		},
+		"components": {
+			"minecraft:break_blocks": {
+				"breakable_blocks": [
+					"leaves",
+					"web",
+					"glass",
+					"glass_pane",
+					"tinted_glass",
+					"tinted_glass_pane",
+					"leaves2",
+					"bamboo"
+				]
+			},
+			"minecraft:collision_box": {
+				"width": 1,
+				"height": 1
+			},
+			"minecraft:timer": {
+				"time": 0.02,
+				"time_down_event": {
+					"event": "rev:decay1"
+				}
+			},
+			"minecraft:projectile": {
+				"on_hit": {
+					"impact_damage": {
+						"damage": 35,
+						"semi_random_diff_damage": true,
+						"knockback": true
+					},
+					"stick_in_ground": {
+						"shake_time": 0
+					},
+					"particle_on_hit": {
+						"particle_type": "explode",
+						"num_particles": 10,
+						"on_entity_hit": true,
+						"on_other_hit": true
+					}
+				},
+				"should_bounce": true,
+				"multiple_targets": true,
+				"power": 3,
+				"gravity": 0,
+				"inertia": 0.8,
+				"anchor": 1,
+				"offset": [
+					0,
+					0,
+					0
+				],
+				"catch_fire": false
+			},
+			"minecraft:scale": {
+				"value": 1
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			}
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"queue_command": {
+					"command": [
+						"playsound rev.s_shotgun_shot @a ~~~ 1 0.8",
+						"camerashake add @s 0.4 0.6 rotational"
+					],
+					"target": "other"
+				}
+			},
+			"rev:die": {
+				"queue_command": {
+					"command": [
+						"kill @s"
+					]
+				}
+			},
+			"rev:decay1": {
+				"add": {
+					"component_groups": [
+						"rev:decay1"
+					]
+				}
+			},
+			"rev:decay2": {
+				"add": {
+					"component_groups": [
+						"rev:decay2"
+					]
+				}
+			},
+			"rev:decay3": {
+				"add": {
+					"component_groups": [
+						"rev:decay3"
+					]
+				}
+			}
+		}
+	}
+}

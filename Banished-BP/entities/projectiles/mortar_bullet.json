@@ -1,0 +1,98 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "rev:mortar_bullet",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"runtime_identifier": "snowball",
+			"is_experimental": false
+		},
+		"component_groups": {
+			"rev:explode": {
+				"minecraft:explode": {
+					"fuse_length": -1,
+					"fuse_lit": true,
+					"power": 3.3,
+					"breaks_blocks": true,
+					"causes_fire": true,
+					"destroy_affected_by_griefing": true
+				}
+			}
+		},
+		"components": {
+			"minecraft:collision_box": {
+				"width": 0.01,
+				"height": 0.01
+			},
+			"minecraft:projectile": {
+				"on_hit": {
+					"impact_damage": {
+						"damage": 16,
+						"knockback": false
+					},
+					"definition_event": {
+						"event_trigger": {
+							"event": "rev:hit"
+						}
+					},
+					"particle_on_hit": {
+						"particle_type": "explode",
+						"num_particles": 30,
+						"on_entity_hit": true,
+						"on_other_hit": true
+					}
+				},
+				"anchor": 1,
+				"power": 3,
+				"gravity": 0.1,
+				"angle_offset": 0
+			},
+			"minecraft:scale": {
+				"value": 1
+			},
+			"minecraft:timer": {
+				"looping": true,
+				"time": 4,
+				"time_down_event": {
+					"event": "rev:hit"
+				}
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			}
+		},
+		"events": {
+			"minecraft:entity_spawned":{
+				"queue_command": {
+					"command": [
+						"playsound rev.mortar_shot @a ~ ~ ~ 1 0.8",
+						"camerashake add @s 0.3 0.4 rotational"
+					],
+					"target": "other"
+				}
+			},
+			"rev:hit": {
+				"sequence": [
+					{
+						"queue_command": {
+							"command": [
+								"damage @e[type=!rev:mortar_bullet,r=5] 12 block_explosion",
+								"fill ~-2 ~-2 ~-2 ~2 ~2 ~2 fire replace air"
+							]
+						}
+					},
+					{
+						"add": {
+							"component_groups": [
+								"rev:explode"
+							]
+						}
+					}
+				]
+			}
+		}
+	}
+}

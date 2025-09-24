@@ -1,0 +1,69 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "items"
+			},
+			"identifier": "rev:firearm_forger",
+			"traits": {
+				"minecraft:placement_direction": {
+					"enabled_states": [
+						"minecraft:cardinal_direction"
+					]
+				}
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_state('minecraft:cardinal_direction') == 'north'",
+				"components": {
+				  "minecraft:transformation": {
+					"rotation": [0, 0, 0]
+				  }
+				}
+			  },
+			  {
+				"condition": "query.block_state('minecraft:cardinal_direction') == 'south'",
+				"components": {
+				  "minecraft:transformation": {
+					"rotation": [0, 180, 0]
+				  }
+				}
+			  },
+			  {
+				"condition": "query.block_state('minecraft:cardinal_direction') == 'east'",
+				"components": {
+				  "minecraft:transformation": {
+					"rotation": [0, 270, 0]
+				  }
+				}
+			  },
+			  {
+				"condition": "query.block_state('minecraft:cardinal_direction') == 'west'",
+				"components": {
+				  "minecraft:transformation": {
+					"rotation": [0, 90, 0]
+				  }
+				}
+			  }
+			
+		],
+		"components": {
+			"minecraft:light_emission": 10,
+
+			"minecraft:geometry": "geometry.firearm_forger",
+			"minecraft:destructible_by_mining":{
+				"seconds_to_destroy": 3
+			},
+			"minecraft:destructible_by_explosion": false,
+
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "rev_firearm_forger",
+					"render_method": "alpha_test"
+				}
+			}
+		}
+	}
+}

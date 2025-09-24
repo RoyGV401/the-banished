@@ -1,0 +1,86 @@
+{
+  "format_version": "1.21.30",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "rev:plasma_rifle_bullet",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "runtime_identifier": "snowball",
+      "is_experimental": false ,
+      "properties": {
+        "rev:is_banished": {
+            "type": "bool",
+            "default": true
+        },
+        "rev:chain_damage": {
+            "type": "float",
+            "range": [0, 50.0],
+            "default": 8.0
+        }
+    }
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.01,
+        "height": 0.01
+      },
+      "minecraft:type_family": {
+        "family": [
+          "projectile"
+        ]
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 0,
+            "knockback": false
+          },
+          "definition_event": {
+            "event_trigger": {
+              "event": "ajolote:hit"
+            }
+          },
+          "particle_on_hit": {
+            "particle_type": "explode",
+            "num_particles": 30,
+            "on_entity_hit": true,
+            "on_other_hit": true
+          }
+        },
+        "anchor": 1,
+        "power": 4,
+        "gravity": 0,
+        "angle_offset": 0
+      },
+      "minecraft:scale": {
+        "value": 1
+      },
+      "minecraft:timer": {
+        "time": 4,
+        "time_down_event": {
+          "event": "ajolote:die"
+        }
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "camerashake add @s 0.3 0.2 rotational"
+          ],
+          "target": "other"
+        }
+      },
+      "ajolote:die": {
+        "queue_command": {
+          "command": "kill @s"
+        }
+      }
+    }
+  }
+}

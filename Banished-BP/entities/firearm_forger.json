@@ -1,0 +1,82 @@
+{
+	"format_version": "1.19.20",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "rev:firearm_forger",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"best": {
+				"minecraft:economy_trade_table": {
+					"display_name": "Firearm Forger",
+					"table": "trading/economy_trades/firearm_forger_best.json",
+					"new_screen": true
+				}
+			}
+		},
+		"components": {
+			"minecraft:type_family": {
+				"family": [
+					"firearm_forger",
+					"inanimate"
+				]
+			},
+			"minecraft:breathable": {
+				"total_supply": 900000,
+				"suffocate_time": 0
+			},
+			"minecraft:health": {
+				"value": 1,
+				"max": 1
+			},
+			"minecraft:fire_immune": true,
+			"minecraft:collision_box": {
+				"width": 0.4,
+				"height": 1
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "any",
+						"deals_damage": false
+					}
+				]
+			},
+			"minecraft:behavior.trade_with_player": {
+				"priority": 1
+			},
+			"minecraft:knockback_resistance": {
+				"value": 99
+			},
+			"minecraft:physics": {
+				"has_gravity": false,
+				"has_collision": false
+			},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": true
+			}
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"randomize": [
+					{
+						"weight": 5,
+						"queue_command": {
+							"command": [
+								"tp @s ~~~ facing @p"
+							]
+						},
+						"add": {
+							"component_groups": [
+								"best"
+							]
+						}
+					}
+				]
+			}
+		}
+	}
+}

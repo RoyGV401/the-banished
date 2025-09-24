@@ -1,0 +1,22 @@
+{
+	"format_version": "1.20.50",
+	"minecraft:item": {
+		"description": {
+			"identifier": "rev:musket_bullets",
+			"menu_category": {
+				"category": "equipment",
+				"group": "itemGroup.name.arrow"
+			}
+		},
+		"components": {
+			"minecraft:allow_off_hand": true,
+			"minecraft:projectile": {
+				"projectile_entity": "rev:musket_bullet",
+				"minimum_critical_power": 1
+			},
+			"minecraft:icon": {
+				"texture": "rev_musket_bullets"
+			}
+		}
+	}
+}

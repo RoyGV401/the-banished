@@ -1,0 +1,278 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "rev:musket_bullet",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "runtime_identifier": "snowball",
+      "is_experimental": false
+    },
+    "component_groups": {
+      "rev:hunting_damage": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "impact_damage": {
+              "damage": 28,
+              "max_critical_damage": 34,
+              "knockback": true
+            },
+            "stick_in_ground": {
+              "shake_time": 0
+            },
+            "particle_on_hit": {
+              "particle_type": "explode",
+              "num_particles": 10,
+              "on_entity_hit": true,
+              "on_other_hit": true
+            }
+          },
+          "should_bounce": true,
+          "multiple_targets": true,
+          "power": 25,
+          "gravity": 0,
+          "inertia": 1,
+          "anchor": 1,
+          "offset": [
+            0,
+            0,
+            0
+          ],
+          "catch_fire": false
+        }
+      },
+      "rev:musket_damage": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "impact_damage": {
+              "damage": 20,
+              "max_critical_damage": 24,
+              "knockback": true
+            },
+            "stick_in_ground": {
+              "shake_time": 0
+            },
+            "particle_on_hit": {
+              "particle_type": "explode",
+              "num_particles": 10,
+              "on_entity_hit": true,
+              "on_other_hit": true
+            }
+          },
+          "should_bounce": true,
+          "multiple_targets": true,
+          "power": 20,
+          "gravity": 0,
+          "inertia": 1,
+          "anchor": 1,
+          "offset": [
+            0,
+            0,
+            0
+          ],
+          "catch_fire": false
+        }
+      },
+      "rev:mauler_damage": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "impact_damage": {
+              "damage": 16,
+              "max_critical_damage": 16,
+              "knockback": true
+            },
+            "stick_in_ground": {
+              "shake_time": 0
+            },
+            "particle_on_hit": {
+              "particle_type": "explode",
+              "num_particles": 10,
+              "on_entity_hit": true,
+              "on_other_hit": true
+            }
+          },
+          "should_bounce": true,
+          "multiple_targets": true,
+          "power": 20,
+          "gravity": 0,
+          "inertia": 1,
+          "anchor": 1,
+          "offset": [
+            0,
+            0,
+            0
+          ],
+          "catch_fire": false
+        }
+      }
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.1,
+        "height": 0.1
+      },
+      "minecraft:explode": {
+        "fuse_lit": true,
+        "power": 0,
+        "fuse_length": 1
+      },
+      "minecraft:timer": {
+        "looping": true,
+        "time": 2,
+        "time_down_event": {
+          "event": "rev:die"
+        }
+      },
+      "minecraft:scale": {
+        "value": 1
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "has_equipment",
+              "subject": "other",
+              "value": "rev:hunting_musket"
+            },
+            "queue_command": {
+              "command": [
+                "playsound rev.musket_shot @a ~ ~ ~ 1 0.8", "camerashake add @s 0.5 0.5 rotational"
+              ],
+              "target": "other"
+            },
+            "add": {
+              "component_groups": [
+                "rev:hunting_damage"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "has_equipment",
+              "subject": "other",
+              "value": "rev:shadow_hunting_musket"
+            },
+            "queue_command": {
+              "command": [
+                "playsound rev.musket_shot @a ~ ~ ~ 1 0.6", "camerashake add @s 0.5 0.5 rotational"
+              ],
+              "target": "other"
+            },
+            "add": {
+              "component_groups": [
+                "rev:hunting_damage"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "has_equipment",
+              "subject": "other",
+              "value": "rev:musket"
+            },
+            "queue_command": {
+              "command": [
+                "playsound rev.musket_shot @a ~ ~ ~ 10 1", "camerashake add @s 0.2 0.4 rotational"
+              ],
+              "target": "other"
+            },
+            "add": {
+              "component_groups": [
+                "rev:musket_damage"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "has_equipment",
+              "subject": "other",
+              "value": "rev:shadow_musket"
+            },
+            "queue_command": {
+              "command": [
+                "playsound rev.musket_shot @a ~ ~ ~ 10 0.8", "camerashake add @s 0.2 0.4 rotational"
+              ],
+              "target": "other"
+            },
+            "add": {
+              "component_groups": [
+                "rev:musket_damage"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "has_equipment",
+              "subject": "other",
+              "value": "rev:mauler"
+            },
+            "queue_command": {
+              "command": [
+                "playsound rev.musket_shot @a ~ ~ ~ 1 1.4", "camerashake add @s 0.2 0.4 rotational"
+              ],
+              "target": "other"
+            },
+            "add": {
+              "component_groups": [
+                "rev:mauler_damage"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "has_equipment",
+              "subject": "other",
+              "value": "rev:shadow_mauler"
+            },
+            "queue_command": {
+              "command": [
+                "playsound rev.musket_shot @a ~ ~ ~ 1 1.3", "camerashake add @s 0.2 0.4 rotational"
+              ],
+              "target": "other"
+            },
+            "add": {
+              "component_groups": [
+                "rev:mauler_damage"
+              ]
+            }
+          }
+        ]
+      },
+      "rev:decay1": {
+        "add": {
+          "component_groups": [
+            "rev:decay1"
+          ]
+        }
+      },
+      "rev:decay2": {
+        "add": {
+          "component_groups": [
+            "rev:decay2"
+          ]
+        }
+      },
+      "rev:decay3": {
+        "add": {
+          "component_groups": [
+            "rev:decay3"
+          ]
+        }
+      },
+      "rev:die": {
+        "queue_command": {
+          "command": [
+            "kill @s"
+          ]
+        }
+      }
+    }
+  }
+}

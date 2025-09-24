@@ -1,0 +1,36 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "rev:firearm_forger_recipe"
+		},
+		"unlock":[
+			{
+				"item": "minecraft:nether_star"
+			}
+		],
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"X": {
+				"item": "iron_ingot"
+			},
+			"Y": {
+				"item": "lava_bucket"
+			},
+			"Z": {
+				"item": "smooth_stone"
+			}
+		},
+		"pattern": [
+			"ZZZ",
+			"XYX",
+			"XXX"
+		],
+		"result": {
+			"item": "rev:firearm_forger",
+			"count": 1
+		}
+	}
+}

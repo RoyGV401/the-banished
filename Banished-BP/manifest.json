@@ -1,0 +1,39 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "§a§lThe Banished <> A Halo Add-on <> v1.0",
+    "description": "Adds The Banished from Halo into your Minecraft world!\nMade by §6R401§r\n§aRemember to enable the Behavior Pack as well!\n§cNot affiliated with Microsoft or Halo Studios in any way.",
+    "uuid": "93697c11-cb6f-4efc-ad2d-75c11617b7f6",
+    "version": [2, 0, 1],
+    "min_engine_version": [1, 21, 0]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "description": "_",
+      "uuid": "acef61d8-5756-4604-a7de-11c612476bc0",
+      "version": [1, 0, 0]
+    },
+	{
+		"type": "script",
+		"language": "javascript",
+		"uuid": "fe06d853-9a7a-41fe-9230-9d5c96a69a0a",
+		"entry": "scripts/main.js",
+		"version": [
+			1,
+			0,
+			0
+		]
+	}
+  ],
+  "dependencies": [
+    {
+      "module_name": "@minecraft/server",
+      "version": "1.18.0"
+    }
+  ],
+
+  "metadata": {
+    "product_type": "addon"
+  }
+}

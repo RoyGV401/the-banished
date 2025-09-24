@@ -1,0 +1,31 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "rev:shadow_hunting_musket_recipe"
+		},
+		
+		"unlock":[
+			{
+				"item": "minecraft:nether_star"
+			}
+		],
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"item": "rev:hunting_musket",
+				"count": 1
+			},
+			{
+				"item": "nether_star",
+				"count": 1
+			}
+		],
+		"result": {
+			"item": "rev:shadow_hunting_musket",
+			"count": 1
+		}
+	}
+}

@@ -1,0 +1,59 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:crafting_items_catalog": {
+    "categories": [
+      {
+        "category_name": "equipment",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "rev:mauler",
+              "name": "rev:guns_name"
+            },
+            "items": [
+              "rev:musket",
+              "rev:hunting_musket",
+              "rev:hand_mortar",
+              "rev:mauler",
+              "rev:flintlock",
+              "rev:shotgun_normal",
+              "rev:shotgun_s",
+              "rev:auto_gun",
+              "rev:repeater_crossbow"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "rev:shadow_mauler",
+              "name": "rev:shadow_guns_name"
+            },
+            "items": [
+              "rev:shadow_musket",
+              "rev:shadow_hunting_musket",
+              "rev:shadow_hand_mortar",
+              "rev:shadow_mauler",
+              "rev:shadow_flintlock",
+              "rev:shadow_shotgun_normal",
+              "rev:shadow_shotgun_s",
+              "rev:shadow_auto_gun"
+            ]
+          },
+          
+          {
+            "group_identifier": {
+              "icon": "rev:musket_bullets",
+              "name": "rev:bullets_name"
+            },
+            "items": [
+              "rev:musket_bullets",
+              "rev:plasma_rifle_bullets",
+              "rev:mortar_bullet",
+              "rev:shotgun_shells",
+              "rev:shotgun_s_shells"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

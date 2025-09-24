@@ -1,0 +1,146 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "rev:fake_arrow",
+      "is_spawnable": false,
+      "runtime_identifier": "minecraft:arrow",
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "rev:normal_arrow":{
+       "minecraft:projectile": {
+          "on_hit": {
+            "impact_damage": {
+              "damage": 1,
+              "knockback": true,
+              "semi_random_diff_damage": true,
+              "destroy_on_hit": false,
+              "max_critical_damage": 10,
+              "min_critical_damage": 9,
+              "power_multiplier": 0.97
+            },
+            
+            "stick_in_ground": {
+              "shake_time" : 0.35
+            },
+            "arrow_effect": {
+            }
+          },
+          "multiple_targets": false,
+          "hit_sound": "bow.hit",
+          "power": 5.0,
+          "gravity": 0.05,
+          "uncertainty_base": 1,
+          "uncertainty_multiplier": 0,
+          "anchor": 1,
+          "should_bounce": true,
+          "offset": [ 0, -0.1, 0 ]
+        }
+      },
+      "rev:piercing_arrow":{
+       "minecraft:projectile": {
+          "on_hit": {
+            "impact_damage": {
+              "damage": 1,
+              "knockback": true,
+              "semi_random_diff_damage": true,
+              "destroy_on_hit": false,
+              "max_critical_damage": 10,
+              "min_critical_damage": 9,
+              "power_multiplier": 0.97
+            },
+            "stick_in_ground": {
+              "shake_time" : 0.35
+            },
+            "arrow_effect": {
+            }
+          },
+          "hit_sound": "bow.hit",
+          "power": 5.0,
+          "gravity": 0.05,
+          "uncertainty_base": 1,
+          "uncertainty_multiplier": 0,
+          "anchor": 1,
+          "should_bounce": true,
+          "offset": [ 0, -0.1, 0 ]
+        }
+      },
+      "rev:despawn":{
+        "minecraft:instant_despawn": {
+          "remove_child_entities": false
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.25,
+        "height": 0.25
+      },
+      "minecraft:timer": {
+        "time": 12,
+        "looping": true,
+        "time_down_event": {
+          "event": "rev:despawn",
+          "target": "self"
+        }
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+    
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+
+    "events": {
+      "rev:despawn":{
+        "add": {
+          "component_groups": [
+            "rev:despawn"
+          ]
+        }
+      },
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "rev:normal_arrow"
+          ]
+        }
+
+      },
+      "rev:piercing":{
+        "remove":{
+          "component_groups": [
+            "rev:normal_arrow"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "rev:piercing_arrow"
+          ]
+        }
+      }
+    }
+
+  }
+}

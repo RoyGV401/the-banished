@@ -1,0 +1,375 @@
+{
+	"tiers": [
+		{
+			"groups": [
+				{
+					"trades": [
+
+						{
+							"max_uses": 9999,
+							"reward_exp": true,
+							"wants": [
+								{
+									"item": "minecraft:iron_ingot",
+									"quantity": 18
+								},
+								{
+									"item": "crossbow",
+									"quantity": 1
+								}
+							],
+							"gives": [
+								{
+									"item": "rev:repeater_crossbow",
+									"functions": [
+										{
+											"function": "set_lore",
+											"lore": [
+												"§l§fDamage: §eMedium\n§fReload Time: §aVery Fast\n§fOptimal Range: §eAny"
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"max_uses": 9999,
+							"reward_exp": true,
+							"wants": [
+								{
+									"item": "minecraft:iron_ingot",
+									"quantity": 14
+								},
+								{
+									"item": "flint_and_steel",
+									"quantity": 1
+								}
+							],
+							"gives": [
+								{
+									"item": "rev:flintlock",
+									"functions": [
+										{
+											"function": "set_lore",
+											"lore": [
+												"§l§fDamage: §eMedium\n§fReload Time: §aFast\n§fOptimal Range: §eAny"
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"max_uses": 9999,
+							"reward_exp": true,
+							"wants": [
+								{
+									"item": "minecraft:iron_ingot",
+									"quantity": 32
+								},
+								{
+									"item": "flint_and_steel",
+									"quantity": 1
+								}
+							],
+							"gives": [
+								{
+									"item": "rev:musket",
+									"functions": [
+										{
+											"function": "set_lore",
+											"lore": [
+												"§l§fDamage: §aHigh\n§fReload Time: §cSlow\n§fOptimal Range: §aLong"
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"max_uses": 9999,
+							"reward_exp": true,
+							"wants": [
+								{
+									"item": "minecraft:iron_ingot",
+									"quantity": 32
+								},
+								{
+									"item": "flint_and_steel",
+									"quantity": 1
+								}
+							],
+							"gives": [
+								{
+									"item": "rev:shotgun_normal",
+									"functions": [
+										{
+											"function": "set_lore",
+											"lore": [
+												"§l§fDamage: §aHigh\n§fReload Time: §eMedium\n§fOptimal Range: §cClose"
+											]
+										}
+									],
+									"quantity": 1
+								}
+							]
+						},
+						{
+							"max_uses": 9999,
+							"reward_exp": true,
+							"wants": [
+								{
+									"item": "minecraft:iron_ingot",
+									"quantity": 36
+								},
+								{
+									"item": "flint_and_steel",
+									"quantity": 1
+								}
+							],
+							"gives": [
+								{
+									"item": "rev:auto_gun",
+									"functions": [
+										{
+											"function": "set_lore",
+											"lore": [
+												"§l§fDamage: §aLow\n§fReload Time: §aVery Fast\n§fOptimal Range: §aAny"
+											]
+										}
+									],
+									"quantity": 1
+								}
+							]
+						},
+						{
+							"max_uses": 9999,
+							"reward_exp": true,
+							"wants": [
+								{
+									"item": "minecraft:iron_ingot",
+									"quantity": 36
+								},
+								{
+									"item": "flint_and_steel",
+									"quantity": 1
+								}
+							],
+							"gives": [
+								{
+									"item": "rev:mauler",
+									"functions": [
+										{
+											"function": "set_lore",
+											"lore": [
+												"§l§fDamage: §aHigh\n§fReload Time: §aFast\n§fOptimal Range: §aAny"
+											]
+										}
+									],
+									"quantity": 1
+								}
+							]
+						},
+						{
+							"max_uses": 9999,
+							"reward_exp": true,
+							"wants": [
+								{
+									"item": "rev:musket",
+									"quantity": 1
+								},
+								{
+									"item": "minecraft:spyglass",
+									"quantity": 1
+								}
+							],
+							"gives": [
+								{
+									"item": "rev:hunting_musket",
+									"functions": [
+										{
+											"function": "set_lore",
+											"lore": [
+												"§l§fDamage: §4Very High\n§fReload Time: §cSlow\n§fOptimal Range: §aLong"
+											]
+										}
+									],
+									"quantity": 1
+								}
+							]
+						},
+						{
+							"max_uses": 9999,
+							"reward_exp": true,
+							"wants": [
+								{
+									"item": "minecraft:iron_ingot",
+									"quantity": 42
+								},
+								{
+									"item": "flint_and_steel",
+									"quantity": 1
+								}
+							],
+							"gives": [
+								{
+									"item": "rev:shotgun_s",
+									"functions": [
+										{
+											"function": "set_lore",
+											"lore": [
+												"§l§fDamage: §4Very High\n§fReload Time: §cSlow\n§fOptimal Range: §4Point Blank"
+											]
+										}
+									],
+									"quantity": 1
+								}
+							]
+						},
+						{
+							"max_uses": 9999,
+							"reward_exp": true,
+							"wants": [
+								{
+									"item": "minecraft:gold_ingot",
+									"quantity": 36
+								},
+								{
+									"item": "flint_and_steel",
+									"quantity": 1
+								}
+							],
+							"gives": [
+								{
+									"item": "rev:hand_mortar",
+									"functions": [
+										{
+											"function": "set_lore",
+											"lore": [
+												"§l§fDamage: §aHigh\n§fReload Time: §cSlow\n§fOptimal Range: §eAny"
+											]
+										}
+									],
+									"quantity": 1
+								}
+							]
+						},
+						{
+							"max_uses": 9999,
+							"reward_exp": true,
+							"wants": [
+								{
+									"item": "minecraft:iron_ingot",
+									"quantity": 1
+								},
+								{
+									"item": "minecraft:gunpowder",
+									"quantity": 1
+								}
+							],
+							"gives": [
+								{
+									"item": "rev:musket_bullets",
+									"quantity": 2
+								}
+							]
+						},
+						
+						{
+							"max_uses": 9999,
+							"reward_exp": true,
+							"wants": [
+								{
+									"item": "minecraft:iron_ingot",
+									"quantity": 1
+								},
+								{
+									"item": "minecraft:gunpowder",
+									"quantity": 1
+								}
+							],
+							"gives": [
+								{
+									"item": "rev:plasma_rifle_bullets",
+									"quantity": 4
+								}
+							]
+						},
+						{
+							"max_uses": 9999,
+							"reward_exp": true,
+							"wants": [
+								{
+									"item": "minecraft:iron_ingot",
+									"quantity": 1
+								},
+								{
+									"item": "minecraft:gunpowder",
+									"quantity": 2
+								}
+							],
+							"gives": [
+								{
+									"item": "rev:shotgun_shells",
+									"quantity": 2
+								}
+							]
+						},
+						{
+							"max_uses": 9999,
+							"reward_exp": true,
+							"wants": [
+								{
+									"item": "rev:shotgun_shells",
+									"quantity": 2
+								}
+							],
+							"gives": [
+								{
+									"item": "rev:shotgun_s_shells",
+									"functions": [
+										{
+											"function": "set_lore",
+											"lore": [
+												"A bunch of pellet shells tied up!"
+											]
+										}
+									],
+									"quantity": 1
+								}
+							]
+						},
+						{
+							"max_uses": 9999,
+							"reward_exp": true,
+							"wants": [
+								{
+									"item": "iron_ingot",
+									"quantity": 3
+								},
+								{
+									"item": "fire_charge",
+									"quantity": 3
+								}
+							],
+							"gives": [
+								{
+									"item": "rev:mortar_bullet",
+									"functions": [
+										{
+											"function": "set_lore",
+											"lore": [
+												"Handle with extreme care!"
+											]
+										}
+									],
+									"quantity": 1
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

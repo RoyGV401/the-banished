@@ -1,0 +1,22 @@
+{
+	"format_version": "1.20.50",
+	"minecraft:item": {
+		"description": {
+			"identifier": "rev:shotgun_shells",
+			"menu_category": {
+				"category": "equipment",
+				"group": "itemGroup.name.arrow"
+			}
+		},
+		"components": {
+			"minecraft:allow_off_hand": true,
+			"minecraft:projectile": {
+				"projectile_entity": "rev:shotgun_normal_bullet",
+				"minimum_critical_power": 1
+			},
+			"minecraft:icon": {
+				"texture": "rev_shotgun_shells"
+			}
+		}
+	}
+}
