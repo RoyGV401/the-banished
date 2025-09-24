@@ -1,0 +1,19 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.rev_projectile_particle": {
+			"loop": true,
+			"animation_length": 0.05,
+			"sound_effects": {
+				"0.00": {
+					"effect": "projectile_sound"
+				}
+			},
+			"particle_effects": {
+				"0.00": {
+					"effect": "particle"
+				}
+			}
+		}
+	}
+}

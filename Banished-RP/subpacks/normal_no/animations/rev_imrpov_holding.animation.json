@@ -1,0 +1,120 @@
+{
+	"format_version": "1.10.0",
+	"animations": {
+		"animation.rev.aaaaaaaaaaaaaaaaaaaaaaaaaaaaa.weapon_equipped": {
+			"loop": true,
+			"bones": {
+				"leftArm": {
+					"rotation": [
+						"variable.is_first_person ? 0.0 : (-86.61095 + query.target_x_rotation + (variable.is_holding_left ? -variable.tcos0*0.5 : -variable.tcos0)) ",
+						"variable.is_first_person ? 0.0 : 42.45 + query.target_y_rotation",
+						"variable.is_first_person ? 0.0 : 2.28"
+					],
+					"position": [
+						"variable.is_first_person ? 0.0 : -1",
+						0,
+						"variable.is_first_person ? 0.0 : -1.5"
+					]
+				},
+				"rightArm": {
+					"rotation": [
+						"variable.is_first_person ? 0.0 : (-70.5 + query.target_x_rotation + (variable.is_holding_right ? variable.tcos0*0.5 : variable.tcos0))",
+						"variable.is_first_person ? 0.0 : query.target_y_rotation",
+						0
+					],
+					"position": [
+						0,
+						0,
+						"variable.is_first_person ? 0.0 : -1"
+					]
+				},
+				"rightItem": {
+					"rotation": [
+						"variable.is_first_person ? 0.0 : -15",
+						0,
+						0
+					]
+				}
+			}
+		},
+		"animation.rev.aaaaaaaaaaaaaaaaaaaaaaaaaaaaa.weapon_reloading": {
+			"loop": true,
+			"bones": {
+				"leftArm": {
+					"rotation": [
+						"variable.is_first_person ? 0.0 : (-36.61095 + (variable.is_holding_left ? -variable.tcos0*0.5 : -variable.tcos0)) ",
+						"variable.is_first_person ? 0.0 : 42.45 + 0.0",
+						"variable.is_first_person ? 0.0 : 15.28"
+					],
+					"position": [
+						"variable.is_first_person ? 0.0 : -1",
+						0,
+						"variable.is_first_person ? 0.0 : -1.5"
+					]
+				},
+				"rightArm": {
+					"rotation": [
+						"variable.is_first_person ? 0.0 : (-30.5 + (variable.is_holding_right ? variable.tcos0*0.5 : variable.tcos0))",
+						"variable.is_first_person ? 0.0 : 0.0",
+						0
+					],
+					"position": [
+						0,
+						0,
+						"variable.is_first_person ? 0.0 : -1"
+					]
+				},
+				"rightItem": {
+					"rotation": [
+						"variable.is_first_person ? 0.0 : -15",
+						0,
+						0
+					]
+				}
+			}
+		},
+		"animation.rev.aaaaaaaaaaaaaaaaaaaaaaaaaaaaa.weapon_equipped.f": {
+			"loop": true,
+			"bones": {
+				"rightArm": {
+					"rotation": [
+						"variable.is_first_person ? 0.0 : (-70.5 + query.target_x_rotation + (variable.is_holding_right ? variable.tcos0*0.5 : variable.tcos0))",
+						"variable.is_first_person ? 0.0 : query.target_y_rotation",
+						0
+					],
+					"position": [
+						0,
+						0,
+						"variable.is_first_person ? 0.0 : -1"
+					]
+				},
+				"rightItem": {
+					"rotation": [
+						"variable.is_first_person ? 0.0 : -15",
+						0,
+						0
+					]
+				}
+			}
+		},
+		"animation.rev.aaaaaaaaaaaaaaaaaaaaaaaaaaaaa.move.arms.inverted4": {
+			"loop": true,
+			"bones": {
+				"leftarm": {
+					"rotation": [
+						"variable.is_holding_left ? -variable.tcos0*0.5 : -variable.tcos0",
+						0.0,
+						0.0
+					]
+				},
+				"rightarm": {
+					"rotation": [
+						"variable.is_holding_right ? variable.tcos0*0.5 : variable.tcos0",
+						0.0,
+						0.0
+					]
+				}
+			}
+		}
+	}
+}

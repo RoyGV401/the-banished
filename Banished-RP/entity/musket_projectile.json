@@ -1,0 +1,33 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "rev:musket_bullet",
+			"materials": {
+				"default": "snowball"
+			},
+			"textures": {
+				"default": "textures/entity/rev_blank"
+			},
+			"geometry": {
+				"default": "geometry.fireball"
+			},
+			"render_controllers": [
+				"controller.render.fireball"
+			],
+			"particle_effects": {
+				"particle": "rev:musket"
+			},
+			"animations": {
+				"particle": "animation.rev_projectile_particle",
+				"flying": "animation.actor.billboard"
+			},
+			"scripts": {
+				"animate": [
+					"flying",
+					"particle"
+				]
+			}
+		}
+	}
+}

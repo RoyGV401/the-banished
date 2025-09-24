@@ -1,0 +1,22 @@
+{
+	"entity_sounds": {
+		"entities": {
+			"rev:firearm_forger": {
+				"volume": 1,
+				"pitch": [
+					0.6,
+					0.9
+				],
+				"events": {
+					"hurt": {
+						"sound": "random.break",
+						"volume": 0.7
+					},
+					"haggle": "random.anvil_use",
+					"haggle.yes": "random.anvil_use",
+					"death": "random.pop"
+				}
+			}
+		}
+	}
+}

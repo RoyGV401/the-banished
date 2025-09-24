@@ -1,0 +1,52 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:attachable": {
+		"description": {
+			"identifier": "rev:musket",
+			"materials": {
+				"default": "entity_alphatest",
+				"enchanted": "entity_alphatest_glint"
+			},
+			"textures": {
+				"default": "textures/models/musket_texture",
+				"enchanted": "textures/misc/enchanted_item_glint"
+			},
+			"geometry": {
+				"default": "geometry.musket"
+			},
+			"particle_effects": {
+				"particle": "rev:musket"
+			},
+			"sound_effects": {
+				"pull": "mob.witch.throw",
+				"push": "close.wooden_trapdoor",
+				"click": "block.barrel.open",
+				"stern": "block.barrel.close"
+			},
+			"animations": {
+				"start": "animation.musket.start",
+				"first_person": "animation.player.banished.first_person",
+				"empty": "animation.player.banished.aim",
+				"default": "animation.player.banished.third2",
+				"fire_controller": "controller.animation.musket.fire",
+				"fire": "animation.musket.fire"
+			},
+			"scripts": {
+				"animate": [
+					{
+						"first_person": "c.is_first_person && c.item_slot == 'main_hand'"
+					},
+					{
+						"fire_controller": "c.is_first_person && (query.is_item_name_any('slot.hotbar',0,'rev:musket_bullets') || query.is_item_name_any('slot.hotbar',1,'rev:musket_bullets') || query.is_item_name_any('slot.hotbar',2,'rev:musket_bullets') || query.is_item_name_any('slot.hotbar',3,'rev:musket_bullets') || query.is_item_name_any('slot.hotbar',4,'rev:musket_bullets') || query.is_item_name_any('slot.hotbar',5,'rev:musket_bullets') || query.is_item_name_any('slot.hotbar',6,'rev:musket_bullets') || query.is_item_name_any('slot.hotbar',7,'rev:musket_bullets') || query.is_item_name_any('slot.hotbar',8,'rev:musket_bullets') || query.is_item_name_any('slot.inventory',0,'rev:musket_bullets') || query.is_item_name_any('slot.inventory',1,'rev:musket_bullets') || query.is_item_name_any('slot.inventory',2,'rev:musket_bullets') || query.is_item_name_any('slot.inventory',3,'rev:musket_bullets') || query.is_item_name_any('slot.inventory',4,'rev:musket_bullets') || query.is_item_name_any('slot.inventory',5,'rev:musket_bullets') || query.is_item_name_any('slot.inventory',6,'rev:musket_bullets') || query.is_item_name_any('slot.inventory',7,'rev:musket_bullets') || query.is_item_name_any('slot.inventory',8,'rev:musket_bullets') || query.is_item_name_any('slot.inventory',9,'rev:musket_bullets') || query.is_item_name_any('slot.inventory',10,'rev:musket_bullets') || query.is_item_name_any('slot.inventory',11,'rev:musket_bullets') || query.is_item_name_any('slot.inventory',12,'rev:musket_bullets') || query.is_item_name_any('slot.inventory',13,'rev:musket_bullets') || query.is_item_name_any('slot.inventory',14,'rev:musket_bullets') || query.is_item_name_any('slot.inventory',15,'rev:musket_bullets') || query.is_item_name_any('slot.inventory',16,'rev:musket_bullets') || query.is_item_name_any('slot.inventory',17,'rev:musket_bullets') || query.is_item_name_any('slot.inventory',18,'rev:musket_bullets') || query.is_item_name_any('slot.inventory',19,'rev:musket_bullets') || query.is_item_name_any('slot.inventory',20,'rev:musket_bullets') || query.is_item_name_any('slot.inventory',21,'rev:musket_bullets') || query.is_item_name_any('slot.inventory',22,'rev:musket_bullets') || query.is_item_name_any('slot.inventory',23,'rev:musket_bullets') || query.is_item_name_any('slot.inventory',24,'rev:musket_bullets') || query.is_item_name_any('slot.inventory',25,'rev:musket_bullets') || query.is_item_name_any('slot.inventory',26,'rev:musket_bullets'))"
+					},
+					{
+						"default": "!c.is_first_person && c.item_slot == 'main_hand'"
+					}
+				]
+			},
+			"render_controllers": [
+				"controller.render.item_default"
+			]
+		}
+	}
+}

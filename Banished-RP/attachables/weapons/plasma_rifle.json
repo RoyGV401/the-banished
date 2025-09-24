@@ -1,0 +1,59 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:attachable": {
+		"description": {
+			"identifier": "rev:plasma_rifle",
+			"materials": {
+				"default": "enderman",
+				"enchanted": "entity_alphatest_glint"
+			},
+			"textures": {
+				"default": "textures/models/plasma_rifle",
+				"enchanted": "textures/misc/enchanted_item_glint"
+			},
+			"geometry": {
+				"default": "geometry.plasma_rifle"
+			},
+			"sound_effects": {
+				"open": "open.wooden_trapdoor",
+				"reload": "block.barrel.close",
+				"close": "close.wooden_trapdoor",
+				"pull": "mob.witch.throw",
+				"flick": "close.wooden_trapdoor"
+			},
+			"animations": {
+				"first_person": "animation.player.banished.first_person",
+				"empty": "animation.player.banished.aim",
+				"reload": "animation.auto_gun.reload",
+				"reload_controller": "controller.animation.auto_gun.reload",
+				"default": "animation.player.banished.third2",
+				"specific": "animation.auto_gun.specific",
+				"start": "animation.auto_gun.start",
+				"fire_controller": "controller.animation.musket.fire",
+				"fire": "animation.plasma_rifle.fire"
+			},
+			"scripts": {
+				"animate": [
+					{
+						"specific": "c.is_first_person"
+					},
+					{
+						"reload_controller": "c.is_first_person"
+					},
+					{
+						"first_person": "c.is_first_person && c.item_slot == 'main_hand'"
+					},
+					{
+						"fire_controller": "c.is_first_person"
+					},
+					{
+						"default": "!c.is_first_person && c.item_slot == 'main_hand'"
+					}
+				]
+			},
+			"render_controllers": [
+				"controller.render.item_default"
+			]
+		}
+	}
+}

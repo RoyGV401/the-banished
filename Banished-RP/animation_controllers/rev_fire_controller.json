@@ -1,0 +1,83 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.musket.fire": {
+			"initial_state": "first_person",
+			"states": {
+				"first_person": {
+					"transitions": [
+						{
+							"fire": "(query.cooldown_time_remaining('slot.weapon.mainhand')>0.0)"
+						}
+					]
+				},
+				"fire": {
+					"animations": [
+						{
+							"fire": 1
+						}
+					],
+					"transitions": [
+						{
+							"first_person": "(query.cooldown_time_remaining('slot.weapon.mainhand')<0.1)"
+						}
+					],
+					"blend_transition": 2,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.musket.reload": {
+			"initial_state": "first_person",
+			"states": {
+				"first_person": {
+					"transitions": [
+						{
+							"reload": "(query.cooldown_time_remaining('slot.weapon.mainhand')>5)"
+						}
+					]
+				},
+				"reload": {
+					"animations": [
+						{
+							"reload": 1
+						}
+					],
+					"transitions": [
+						{
+							"first_person": "query.cooldown_time_remaining('slot.weapon.mainhand')<0.01"
+						}
+					],
+					"blend_transition": 0.5,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.auto_gun.reload": {
+			"initial_state": "first_person",
+			"states": {
+				"first_person": {
+					"transitions": [
+						{
+							"reload": "(query.cooldown_time_remaining('slot.weapon.mainhand')>2.5)"
+						}
+					]
+				},
+				"reload": {
+					"animations": [
+						{
+							"reload": 1
+						}
+					],
+					"transitions": [
+						{
+							"first_person": "query.cooldown_time_remaining('slot.weapon.mainhand')<0.01"
+						}
+					],
+					"blend_transition": 0.5,
+					"blend_via_shortest_path": true
+				}
+			}
+		}
+	}
+}
