@@ -92,7 +92,7 @@ world.beforeEvents.worldInitialize.subscribe(initEvent => {
                 const burst = projectileData.split("burst:'")[1].split("'")[0];
                 const burstSpeed = projectileData.split("burst_speed:'")[1].split("'")[0];
                 const bloom = projectileData.split("bloom:'")[1].split("'")[0];
-                const homing = Number(projectileData?.split("homing:'")[1]?.split("'")[0] ?? 0);
+                const homing = tags.includes('rev:homing') ? true : false;
                 let target = false;
                 if (1)
                 {
@@ -128,7 +128,7 @@ world.beforeEvents.worldInitialize.subscribe(initEvent => {
 
                         do {
                             server.system.runTimeout(() => {
-                                shootProjectile(world, playerData, projectile, power, bloom, target);
+                                shootProjectile(world, playerData, projectile, power, bloom, target, homing);
                                 playerData.runCommand(`camerashake add @s ${shakeValue.shake + ((heatingValue / heatingScore) * 0.4)} 0.2 positional`)
                                 playerData.dimension.playSound(sound, playerData.location, {
                                     pitch: pitchModifier
@@ -244,7 +244,7 @@ function damageItem (player,damage){
     
 }
 
-function shootProjectile(world,playerData,projectile,power,bloom,target)
+function shootProjectile(world,playerData,projectile,power,bloom,target, doHoming)
 {
    
     const projectileToShoot = world.getDimension(playerData.dimension.id).spawnEntity(projectile, {
@@ -260,7 +260,7 @@ function shootProjectile(world,playerData,projectile,power,bloom,target)
         z: playerData.getViewDirection().z * power
     }, {uncertainty:parseInt(bloom)})
 
-    if (target != false && target != undefined)
+    if (target != false && target != undefined && doHoming == true)
     {
         projectileToShoot.setDynamicProperty('rev:homing_target',target.id)
     }

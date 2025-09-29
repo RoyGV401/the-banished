@@ -16,6 +16,30 @@
 					"pivot": [0, 0, 0]
 				},
 				{
+					"name": "bone3",
+					"parent": "head",
+					"pivot": [0.5, 8.9, -115],
+					"cubes": [
+						{"origin": [-5, 3.4, -115], "size": [11, 11, 0], "uv": [25, 42]}
+					]
+				},
+				{
+					"name": "bone2",
+					"parent": "head",
+					"pivot": [-5.5, -2.1, -115],
+					"cubes": [
+						{"origin": [-11, -7.6, -115], "size": [11, 11, 0], "uv": [19, 53]}
+					]
+				},
+				{
+					"name": "bone",
+					"parent": "head",
+					"pivot": [5.5, -2.1, -115],
+					"cubes": [
+						{"origin": [0, -7.6, -115], "size": [11, 11, 0], "uv": [30, 53]}
+					]
+				},
+				{
 					"name": "rightitem",
 					"pivot": [-5.40074, 4.59756, 1.62567],
 					"rotation": [90, 0, 0]

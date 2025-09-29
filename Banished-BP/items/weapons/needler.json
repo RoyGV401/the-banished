@@ -17,8 +17,9 @@
 			"minecraft:tags": {
 				"tags": [
 					"rev:hold_animation_f",
+					"rev:homing",
 					"rev:heating={heating_score:'6'}",
-					"rev:ammo={projectile:'rev:plasma_pistol_bullet',bloom:'1', power:'3',sound:'rev.plasma_pistol_shot',damage:'1',burst_speed:'4', burst:'2', ammunition:'minecraft:diamond',amount:'1',reload:'1',capacity:'100',reload_sound:'mob.witch.throw'}"
+					"rev:ammo={projectile:'rev:plasma_pistol_bullet',bloom:'1', power:'3',sound:'rev.needler.shot',damage:'1',burst_speed:'4', burst:'3', ammunition:'minecraft:diamond',amount:'1',reload:'1',capacity:'100',reload_sound:'mob.witch.throw'}"
 				]
 			},
 			"minecraft:use_modifiers": {

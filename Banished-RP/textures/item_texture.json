@@ -1,51 +1,10 @@
 {
-	"resource_pack_name": "Vanilla Guns",
+	"resource_pack_name": "TheBanished",
 	"texture_name": "atlas.items",
 	"texture_data": {
-		"rev_repeater_crossbow": {
-			"textures": "textures/items/repeater_crossbow"
-		},
-		"rev_flintlock_bullets": {
-			"textures": "textures/items/hand_cannon_bullet"
-		},
-		"rev_flintlock": {
-			"textures": "textures/items/hand_cannon"
-		},
-		"rev_mauler": {
-			"textures": "textures/items/mauler"
-		},
-		"rev_hunting_musket": {
-			"textures": "textures/items/hunting_musket"
-		},
-		"rev_auto_gun": {
-			"textures": "textures/items/auto_gun"
-		},
-		"rev_musket": {
-			"textures": "textures/items/musket"
-		},
-		"rev_antique_shotgun": {
-			"textures": "textures/items/blunderbuss"
-		},
-		"rev_hand_mortar": {
-			"textures": "textures/items/hand_mortar"
-		},
-		"rev_shotgun_s": {
-			"textures": "textures/items/shotgun_s"
-		},
-		"rev_musket_bullets": {
-			"textures": "textures/items/musket_bullet"
-		},
-		"rev_shotgun_shells": {
-			"textures": "textures/items/pellet_shell"
-		},
-		"rev_more_shells": {
-			"textures": "textures/items/more_shells"
-		},
-		"rev_mortar_bullet": {
-			"textures": "textures/items/mortar_bullet"
-		},
-		"rev_light_bullets": {
-			"textures": "textures/items/light_bullets"
+		"rev_plasma_rifle": {
+			"textures": "textures/items/rev/plasma_rifle"
 		}
+		
 	}
 }
