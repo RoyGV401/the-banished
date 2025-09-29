@@ -38,6 +38,8 @@ server.system.runInterval(() => {
       const itemId = item.typeId;
       if (jug.isSneaking && (itemId == "rev:hunting_musket" || itemId=="rev:shadow_hunting_musket")) jug.addEffect('slowness', 20, { amplifier: 9, showParticles: false });
       else if ((itemId == "rev:hunting_musket" || itemId=="rev:shadow_hunting_musket")) jug.removeEffect('slowness');
+      if (itemId.includes("rev:")) jug.runCommand('hud @s hide crosshair');
+      else jug.runCommand('hud @s reset crosshair')
    })
 },5);
 

@@ -18,6 +18,10 @@ const shakeValues = [
         shake: 0.2
     },
     {
+        id:"rev:needler",
+        shake: 0.2
+    },
+    {
         id:"rev:pulse_carabine",
         shake: 0.1
     }
