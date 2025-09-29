@@ -20,6 +20,12 @@ const damageChainValues = [
         chain_damage:9,
         piercing: false,
         piercing_limit: 0,
+    },
+    {
+        id:"rev:needler_bullet",
+        chain_damage:3,
+        piercing: false,
+        piercing_limit: 0,
     }
 ]
 world.afterEvents.projectileHitEntity.subscribe(data=>{

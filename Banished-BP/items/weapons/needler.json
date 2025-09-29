@@ -18,8 +18,8 @@
 				"tags": [
 					"rev:hold_animation_f",
 					"rev:homing",
-					"rev:heating={heating_score:'6'}",
-					"rev:ammo={projectile:'rev:plasma_pistol_bullet',bloom:'1', power:'3',sound:'rev.needler.shot',damage:'1',burst_speed:'4', burst:'3', ammunition:'minecraft:diamond',amount:'1',reload:'1',capacity:'100',reload_sound:'mob.witch.throw'}"
+					"rev:heating={heating_score:'7'}",
+					"rev:ammo={projectile:'rev:needler_bullet',bloom:'3', power:'1',sound:'rev.needler.shot',damage:'1',burst_speed:'2', burst:'3', ammunition:'minecraft:diamond',amount:'1',reload:'1',capacity:'100',reload_sound:'mob.witch.throw'}"
 				]
 			},
 			"minecraft:use_modifiers": {
@@ -28,7 +28,7 @@
 			},
 			"minecraft:cooldown": {
 				"category": "auto_gun",
-				"duration": 0.3
+				"duration": 0.2
 			},
 			"minecraft:repairable": {
 				"repair_items": [

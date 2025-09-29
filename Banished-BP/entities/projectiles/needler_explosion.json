@@ -1,0 +1,82 @@
+{
+	"format_version": "1.20.60",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "rev:needler_explosion",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"runtime_identifier": "snowball",
+			"is_experimental": false
+		},
+		"component_groups": {
+			"ajolote:explode": {
+				"minecraft:explode": {
+					"fuse_length": 0,
+					"fuse_lit": true,
+					"power": 4.4,
+					"breaks_blocks": false,
+					"causes_fire": false,
+					"destroy_affected_by_griefing": true
+				}
+			}
+		},
+		"components": {
+			"minecraft:collision_box": {
+				"width": 1,
+				"height": 1
+			},
+			"minecraft:timer": {
+				"time": 0,
+				"time_down_event": {
+					"event": "ajolote:hit"
+				}
+			},
+			"minecraft:projectile": {
+				"on_hit": {
+					"impact_damage": {
+						"damage": 7,
+						"knockback": true
+					},
+					"particle_on_hit": {
+						"particle_type": "slime",
+						"num_particles": 10,
+						"on_entity_hit": true,
+						"on_other_hit": true
+					}
+				},
+				"hit_sound": "ajolote.bf_hit",
+				"anchor": 1,
+				"power": 0.8,
+				"gravity": 0,
+				"angle_offset": 0
+			},
+			"minecraft:scale": {
+				"value": 2
+			},
+			"minecraft:physics": {
+				"has_collision": false
+			},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			}
+		},
+		"events": {
+			"ajolote:hit": {
+				"add": {
+					"component_groups": [
+						"ajolote:explode"
+					]
+				},
+				"queue_command": {
+					"command": [
+						"playsound ajolote.shredder_explode @a ~~~ 5",
+						"particle ajolote:needler_particle ~~~",
+						"damage @e[r=4,type=!player] 12",
+						"damage @e[r=4,type=player] 3"
+					]
+				}
+			}
+		}
+	}
+}
