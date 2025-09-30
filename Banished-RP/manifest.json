@@ -40,5 +40,8 @@
 		"generated_with": {
 			"blockbench_item_wizard": ["1.2.1"]
 		}
-	}
+	},
+    "capabilities" : [
+        "pbr"
+    ]
 }

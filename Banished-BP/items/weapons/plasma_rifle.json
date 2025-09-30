@@ -41,7 +41,7 @@
 			"minecraft:hand_equipped": true,
 			"minecraft:icon": {
 				"textures": {
-					"default": "plasma_rifle"
+					"default": "rev_plasma_rifle"
 				}
 			},
 			"minecraft:durability": {
