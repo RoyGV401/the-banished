@@ -15,27 +15,26 @@
 				"default": "geometry.needler"
 			},
 			"sound_effects": {
-				"open": "open.wooden_trapdoor",
-				"reload": "block.barrel.close",
-				"close": "close.wooden_trapdoor",
-				"pull": "mob.witch.throw",
-				"flick": "close.wooden_trapdoor"
+				"ready": "rev.needler.ready"
 			},
 			"animations": {
 				"first_person": "animation.player.banished.first_person",
 				"idle": "animation.player.banished.idle_basic",
-				"empty": "animation.player.banished.aim",
 				"reload": "animation.auto_gun.reload",
 				"reload_controller": "controller.animation.auto_gun.reload",
 				"default": "animation.player.banished.third2",
 				"specific": "animation.auto_gun.specific",
-				"start": "animation.auto_gun.start",
+				"start": "animation.needler.start",
+				"empty": "animation.needler.empty",
 				"fire_controller": "controller.animation.musket.fire",
 				"fire": "animation.needler.fire"
 			},
 			"scripts": {
 				"animate": [
 					"idle",
+					{
+						"start": "c.is_first_person"
+					},
 					{
 						"specific": "c.is_first_person"
 					},

@@ -44,40 +44,22 @@ world.beforeEvents.playerBreakBlock.subscribe(data => {
    }
 })
 
-world.afterEvents.projectileHitEntity.subscribe(data => {
-   if (data.projectile.typeId == "rev:fake_arrow") {
-      const entityHit = data.getEntityHit().entity;
-      const arrow = data.projectile.getDynamicProperty('rev:arrow_counter')
-      const piercing = data.projectile.getDynamicProperty('rev:piercing')
-      const effect = data.projectile.getDynamicProperty('rev:potion_effect')
-      data.projectile.setDynamicProperty('rev:arrow_counter', arrow + 1)
-      if (effect != null) {
-         entityHit.addEffect(effect, data.projectile.getDynamicProperty('rev:potion_duration') * 20)
-      }
-      if (arrow == 0)
-    {
-        data.projectile.remove();
-        return;
-    } 
-      if (arrow == piercing) {
-         data.projectile.remove()
-      }
-   } else return;
-})
-
-//DESTROY ARROWS WHEN HIT BLOCK
+//Handle piercing and or remove for projectile when hitting a block
 world.afterEvents.projectileHitBlock.subscribe(data => {
-    if (data.projectile.typeId == "rev:fake_arrow") 
-    {
-        server.system.runTimeout(() => {
+   try {
+      if (data.projectile.getProperty('rev:is_banished') == true) {
+         if (data.projectile.getDynamicProperty('rev:do_piercing') == true) {
+            //should pierce!
+         }
+         else {
             data.projectile.remove();
-        },2)
-    } else return;
- })
-
+         };
+      }
+   }
+   catch { }
+});
 
 world.afterEvents.itemUse.subscribe(data => {
-   world.sendMessage('Es: '+data.itemStack.typeId)
    if (data.itemStack.typeId.includes("rev:repeater_crossbow")) {
       let power = 5;
       const enchant = data.itemStack?.getComponent("minecraft:enchantable");
@@ -145,7 +127,7 @@ world.afterEvents.itemUse.subscribe(data => {
       }
 
 
-   } 
+   }
 
    else return;
 })

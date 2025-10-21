@@ -28,6 +28,7 @@ const damageChainValues = [
         piercing_limit: 0,
     }
 ]
+
 world.afterEvents.projectileHitEntity.subscribe(data=>{
     const projectile = data.projectile;
     const pComp = projectile.getComponent('minecraft:projectile');
@@ -39,7 +40,6 @@ world.afterEvents.projectileHitEntity.subscribe(data=>{
 
     const damageValue = damageValues.chain_damage;
     const doPiercing = damageValues.piercing;
-    const piercingLimit = damageValues.piercing_limit;
 
     const chainValue = target.getDynamicProperty('rev:chain_damage') ?? 0;
     {

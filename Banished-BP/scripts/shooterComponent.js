@@ -191,7 +191,7 @@ world.beforeEvents.worldInitialize.subscribe(initEvent => {
                         heatingValue++;
                         item.setDynamicProperty('rev:heating_value',heatingValue);
                     }
-                    world.sendMessage('Hola '+heatingValue)
+                    //world.sendMessage('Hola '+heatingValue)
                 }
                 inv.setItem(playerData.selectedSlotIndex, item);
             }
@@ -202,7 +202,6 @@ world.beforeEvents.worldInitialize.subscribe(initEvent => {
 });
 
 function damageItem (player,damage){
-
     const equipment = player.getComponent('equippable');
     const item = equipment.getEquipment('Mainhand');
     const dmg = damage;
@@ -219,7 +218,7 @@ function damageItem (player,damage){
                 inv.setItem(player.selectedSlotIndex);
                 player.playSound('random.break')
             }
-
+            
             if (item && !unbreaking) {
                 durability.damage += dmg;
                 inv.setItem(player.selectedSlotIndex, item);

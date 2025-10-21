@@ -12,6 +12,11 @@
 				"sounds/needler_shot"
 			]
 		},
+		"rev.needler.ready": {
+			"sounds": [
+				"sounds/needler_ready"
+			]
+		},
 		"rev.plasma_pistol_shot": {
 			"sounds": [
 				"sounds/plasma_pistol_shot"
