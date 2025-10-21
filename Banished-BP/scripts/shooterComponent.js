@@ -93,10 +93,12 @@ world.beforeEvents.worldInitialize.subscribe(initEvent => {
                 const burstSpeed = projectileData.split("burst_speed:'")[1].split("'")[0];
                 const bloom = projectileData.split("bloom:'")[1].split("'")[0];
                 const homing = tags.includes('rev:homing') ? true : false;
+                const dim = playerData.dimension;
+
                 let target = false;
-                if (1)
+                if (homing)
                 {
-                    target = playerData?.getEntitiesFromViewDirection()[0]?.entity; 
+                    target = playerData?.getEntitiesFromViewDirection({ignoreBlockCollision:false})[0]?.entity; 
                 }
                 let bCount = 1;
                 if (item.getDynamicProperty('rev:is_overheated') == true) {

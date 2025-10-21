@@ -1,21 +1,7 @@
 {
 	"format_version": "1.14.0",
 	"sound_definitions": {
-		"rev.musket_shot": {
-			"sounds": [
-				"sounds/musket_shot"
-			]
-		},
-		"rev.flintlock_shot": {
-			"sounds": [
-				"sounds/flintlock_shot"
-			]
-		},
-		"rev.shotgun_shot": {
-			"sounds": [
-				"sounds/shotgun_shot"
-			]
-		},
+		
 		"rev.plasma_rifle_shot": {
 			"sounds": [
 				"sounds/plasma_rifle_shot"
@@ -29,87 +15,6 @@
 		"rev.plasma_pistol_shot": {
 			"sounds": [
 				"sounds/plasma_pistol_shot"
-			]
-		},
-		"rev.mortar_shot": {
-			"sounds": [
-				"sounds/hand_mortar_shot"
-			]
-		},
-		"rev.auto_shot": {
-			"sounds": [
-				"sounds/auto_gun"
-			]
-		},
-		"rev.s_shotgun_shot": {
-			"sounds": [
-				"sounds/s_shotgun_shot"
-			]
-		},
-		"mob.firefly_obo.aggressive": {
-			"category": "neutral",
-			"max_distance": 8,
-			"sounds": [
-				{
-					"name": "sounds/mob/bee/aggressive1",
-					"load_on_low_memory": true
-				},
-				"sounds/mob/bee/aggressive2",
-				"sounds/mob/bee/aggressive3"
-			]
-		},
-		"mob.firefly_obo.death": {
-			"category": "neutral",
-			"sounds": [
-				{
-					"name": "sounds/mob/bee/death1",
-					"load_on_low_memory": true
-				},
-				"sounds/mob/bee/death2"
-			]
-		},
-		"mob.firefly_obo.hurt": {
-			"category": "neutral",
-			"sounds": [
-				"sounds/mob/bee/hurt1",
-				{
-					"name": "sounds/mob/bee/hurt2",
-					"load_on_low_memory": true
-				},
-				"sounds/mob/bee/hurt3"
-			]
-		},
-		"mob.firefly_obo.loop": {
-			"category": "neutral",
-			"max_distance": 6,
-			"sounds": [
-				"sounds/mob/bee/loop1",
-				"sounds/mob/bee/loop2",
-				"sounds/mob/bee/loop3",
-				"sounds/mob/bee/loop4",
-				{
-					"name": "sounds/mob/bee/loop5",
-					"load_on_low_memory": true
-				}
-			]
-		},
-		"mob.firefly_obo.pollinate": {
-			"category": "neutral",
-			"max_distance": 12,
-			"sounds": [
-				{
-					"name": "sounds/mob/bee/pollinate1",
-					"load_on_low_memory": true
-				},
-				"sounds/mob/bee/pollinate2",
-				"sounds/mob/bee/pollinate3",
-				"sounds/mob/bee/pollinate4"
-			]
-		},
-		"mob.firefly_obo.sting": {
-			"category": "neutral",
-			"sounds": [
-				"sounds/mob/bee/sting"
 			]
 		}
 	}

@@ -7,7 +7,7 @@
 				"first_person": {
 					"transitions": [
 						{
-							"fire": "(query.cooldown_time_remaining('slot.weapon.mainhand')>0.0)"
+							"fire": "(query.cooldown_time_remaining('slot.weapon.mainhand')>=0.01)"
 						}
 					]
 				},
@@ -19,7 +19,7 @@
 					],
 					"transitions": [
 						{
-							"first_person": "(query.cooldown_time_remaining('slot.weapon.mainhand')<0.1)"
+							"first_person": "(query.cooldown_time_remaining('slot.weapon.mainhand')<0.02)"
 						}
 					],
 					"blend_transition": 2,

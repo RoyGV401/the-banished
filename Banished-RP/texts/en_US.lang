@@ -1,36 +1,9 @@
-item.rev:flintlock=§aHand Cannon
-item.rev:mauler=§eMauler
-item.rev:musket=§eMusket
-item.rev:shotgun_normal=§eBlunderbuss
-item.rev:hunting_musket=§bHunting Musket
-item.rev:repeater_crossbow=§eRepeating Crossbow
-item.rev:repeater_crossbow_c_1=§eRepeating Crossbow
-item.rev:repeater_crossbow_c_2=§eRepeating Crossbow
-item.rev:repeater_crossbow_c_3=§eRepeating Crossbow
-item.rev:shotgun_s=§bDouble Barrel Shotgun
-item.rev:hand_mortar=§bHand Mortar
-item.rev:auto_gun=§bAuto Gun
-item.rev:auto_gun_empty=§bAuto Gun (Empty)
+item.rev:plasma_rifle=Plasma Rifle
+item.rev:brute_plasma_rifle=Brute Plasma Rifle
+item.rev:plasma_pistol=Plasma Pistol
+item.rev:needler=Needler
+
 
 rev:guns_name=Guns
 rev:shadow_guns_name=Shadow Guns
 rev:bullets_name=Bullets
-
-item.rev:shadow_flintlock=§5Hand Cannon
-item.rev:shadow_musket=§5Musket
-item.rev:shadow_shotgun_normal=§5Blunderbuss
-item.rev:shadow_shotgun_s=§5Double Barrel Shotgun
-item.rev:shadow_hand_mortar=§5Hand Mortar
-item.rev:shadow_mauler=§5Mauler
-item.rev:shadow_auto_gun=§5Auto Gun
-item.rev:shadow_hunting_musket=§5Hunting Musket
-
-
-item.rev:plasma_rifle_bullets=Light Bullets
-item.rev:musket_bullets=Heavy Bullets
-item.rev:shotgun_shells=Pellet Shells
-item.rev:shotgun_s_shells=Tied Shells
-item.rev:mortar_bullet=Mortar Bullet
-
-tile.rev:firearm_forger.name=Firearm Forger
-item.rev:light_bullets=Light Bullets

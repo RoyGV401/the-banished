@@ -4,6 +4,15 @@
 	"texture_data": {
 		"rev_plasma_rifle": {
 			"textures": "textures/items/rev/plasma_rifle"
+		},
+		"rev_brute_plasma_rifle": {
+			"textures": "textures/items/rev/brute_plasma_rifle"
+		},
+		"rev_plasma_pistol": {
+			"textures": "textures/items/rev/plasma_pistol"
+		},
+		"rev_needler": {
+			"textures": "textures/items/rev/needler"
 		}
 		
 	}

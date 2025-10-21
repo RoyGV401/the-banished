@@ -9,24 +9,14 @@
 	},
 	"subpacks": [
 		{
-			"folder_name": "reduced_no",
-			"name": "§2Reduced & No Holding Animations",
-			"memory_tier": 1
-		},
-		{
 			"folder_name": "normal",
-			"name": "§9Fancy Particles",
+			"name": "§9Holding Animations",
 			"memory_tier": 1
 		},
 		{
 			"folder_name": "normal_no",
-			"name": "§9Fancy & No Holding Animations",
+			"name": "§9No Holding Animations",
 			"memory_tier": 1
-		},
-		{
-			"folder_name": "reduced",
-			"name": "§2Reduced Particles (Better Performance)",
-			"memory_tier": 0
 		}
 	],
 	"modules": [

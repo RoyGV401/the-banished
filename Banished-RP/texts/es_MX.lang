@@ -1,35 +1,6 @@
-item.rev:flintlock=§aCañón de Mano
-item.rev:mauler=§eMutilador
-
-item.rev:musket=§eMosquete
-item.rev:shotgun_normal=§eEscopeta
-item.rev:hunting_musket=§bMosquete de Caza
-item.rev:shotgun_s=§bEscopeta de Doble Cañón
-item.rev:hand_mortar=§bMortero de Mano
-item.rev:auto_gun=§bRifle Automático
-item.rev:repeater_crossbow=§eBallesta Repetidora
-item.rev:repeater_crossbow_c_1=§eBallesta Repetidora
-item.rev:repeater_crossbow_c_2=§eBallesta Repetidora
-item.rev:repeater_crossbow_c_3=§eBallesta Repetidora
-item.rev:shadow_flintlock=§5Cañón de Mano
-item.rev:shadow_musket=§5Mosquete
-item.rev:shadow_shotgun_normal=§5Escopeta
-item.rev:shadow_shotgun_s=§5Escopeta de Doble Cañón
-item.rev:shadow_hand_mortar=§5Mortero de Mano
-item.rev:shadow_mauler=§5Mutilador
-item.rev:shadow_auto_gun=§5Rifle Automático
-item.rev:shadow_hunting_musket=§5Mosquete de Caza
-
-item.rev:plasma_rifle_bullets=Balas Ligeras
-item.rev:musket_bullets=Balas Pesadas
-item.rev:shotgun_shells=Cartuchos de Perdigones
-item.rev:shotgun_s_shells=Cartuchos Unidos
-item.rev:mortar_bullet=Proyectil de Mortero
-
-tile.rev:firearm_forger.name=Forjador de Armas de Fuego
+item.rev:plasma_rifle=Plasma Rifle
 
 
-
-rev:guns_name=Armas de Fuego
-rev:shadow_guns_name=Armas Sombrías
-rev:bullets_name=Municiones
+rev:guns_name=Guns
+rev:shadow_guns_name=Shadow Guns
+rev:bullets_name=Bullets

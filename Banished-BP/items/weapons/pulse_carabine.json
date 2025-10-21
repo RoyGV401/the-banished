@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.10",
+	"format_version": "1.21.30",
 	"minecraft:item": {
 		"description": {
 			"identifier": "rev:pulse_carabine",
@@ -7,24 +7,23 @@
 				"category": "equipment"
 			}
 		},
-
 		"components": {
 			"minecraft:custom_components": [
 				"rev:ammo_component",
 				"rev:over_heating"
-
 			],
 			"minecraft:tags": {
 				"tags": [
 					"rev:hold_animation_f",
 					"rev:homing",
+					"rev:banished",
 					"rev:heating={heating_score:'8'}",
 					"rev:ammo={projectile:'rev:plasma_rifle_bullet',bloom:'0', power:'2',sound:'rev.plasma_rifle_shot',damage:'1',burst_speed:'1.6', burst:'3', ammunition:'minecraft:diamond',amount:'1',reload:'1',capacity:'100',reload_sound:'mob.witch.throw'}"
 				]
 			},
 			"minecraft:use_modifiers": {
 				"movement_modifier": 1,
-				"use_duration": 999
+				"use_duration": 0
 			},
 			"minecraft:cooldown": {
 				"category": "auto_gun",

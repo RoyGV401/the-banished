@@ -77,6 +77,7 @@ world.afterEvents.projectileHitBlock.subscribe(data => {
 
 
 world.afterEvents.itemUse.subscribe(data => {
+   world.sendMessage('Es: '+data.itemStack.typeId)
    if (data.itemStack.typeId.includes("rev:repeater_crossbow")) {
       let power = 5;
       const enchant = data.itemStack?.getComponent("minecraft:enchantable");
