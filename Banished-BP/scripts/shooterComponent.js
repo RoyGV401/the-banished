@@ -233,10 +233,18 @@ function damageItem(player, damage, item) {
 
 function shootProjectile(world, playerData, projectile, power, bloom, target, doHoming) {
     const trueBloom = playerData.isSneaking ? bloom/2 : bloom;
+    /*
+    world.getDimension(playerData.dimension.id).spawnParticle('minecraft:white_smoke_particle',{
+        x: playerData.getHeadLocation().x+0.1,
+        y: playerData.getHeadLocation().y,
+        z: playerData.getHeadLocation().z
+    })
+
+*/
     const projectileToShoot = world.getDimension(playerData.dimension.id).spawnEntity(projectile, {
-        x: playerData.location.x + (playerData.getViewDirection().x * 1.2),
-        y: playerData.location.y + 1.3 + (playerData.getViewDirection().y * 1.2),
-        z: playerData.location.z + (playerData.getViewDirection().z * 1.2)
+        x: playerData.getHeadLocation().x ,
+        y: playerData.getHeadLocation().y ,
+        z: playerData.getHeadLocation().z 
     })
     const pComp = projectileToShoot.getComponent('minecraft:projectile');
     pComp.owner = playerData;

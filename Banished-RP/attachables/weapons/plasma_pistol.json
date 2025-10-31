@@ -37,7 +37,7 @@
 				"start": "animation.plasma_pistol_new.start",
 				"fire_controller": "controller.animation.musket.fire",
 				"sprint": "animation.player.banished.sprint.plasma_pistol",
-				"jump": "animation.player.banished.sprint.plasma_pistol",
+				"jump": "animation.player.banished.jump.plasma_pistol",
 				"fire": "animation.plasma_pistol.fire"
 			},
 			"scripts": {
