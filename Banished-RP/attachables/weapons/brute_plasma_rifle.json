@@ -19,16 +19,18 @@
 				"reload": "block.barrel.close",
 				"close": "close.wooden_trapdoor",
 				"pull": "mob.witch.throw",
+				"click": "rev.plasma_click",
 				"flick": "close.wooden_trapdoor"
 			},
 			"animations": {
 				"first_person": "animation.player.banished.first_person",
-				"empty": "animation.player.banished.aim",
+				"first_person_aim": "animation.player.banished.first_person_aim",				"empty": "animation.player.banished.aim",
 				"reload": "animation.auto_gun.reload",
-				"reload_controller": "controller.animation.musket.reload",
+				"reload_controller": "controller.animation.auto_gun.reload",
+				"aim_controller": "controller.animation.rev.aim",
 				"default": "animation.player.banished.third2",
 				"specific": "animation.auto_gun.specific",
-				"start": "animation.auto_gun.start",
+				"start": "animation.plasma_rifle.start",
 				"fire_controller": "controller.animation.musket.fire",
 				"fire": "animation.plasma_rifle_brute.fire"
 			},
@@ -38,10 +40,16 @@
 						"specific": "c.is_first_person"
 					},
 					{
+						"start": "c.is_first_person"
+					},
+					{
 						"reload_controller": "c.is_first_person"
 					},
 					{
 						"first_person": "c.is_first_person && c.item_slot == 'main_hand'"
+					},
+						{
+						"aim_controller": "c.is_first_person"
 					},
 					{
 						"fire_controller": "c.is_first_person"

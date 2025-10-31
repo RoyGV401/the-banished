@@ -8,8 +8,13 @@
 					"transitions": [
 						{
 							"fire": "(query.cooldown_time_remaining('slot.weapon.mainhand')>=0.01)"
+						},
+						{
+							"sprint": "query.is_sprinting == 1"
 						}
-					]
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true
 				},
 				"fire": {
 					"animations": [
@@ -22,7 +27,40 @@
 							"first_person": "(query.cooldown_time_remaining('slot.weapon.mainhand')<0.02)"
 						}
 					],
-					"blend_transition": 2,
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"sprint": {
+					"animations": [
+						{
+							"sprint": 1
+						}
+					],
+					"transitions": [
+	
+						{
+							"first_person": "(query.cooldown_time_remaining('slot.weapon.mainhand')>=0.01) || query.is_sprinting == 0"
+						},
+						{
+							"jump": "query.is_on_ground == 0"
+						}
+					],
+					"blend_transition": 0.14,
+					"blend_via_shortest_path": true
+				},
+				"jump": {
+					"animations": [
+						{
+							"jump": 1
+						}
+					],
+					"transitions": [
+	
+						{
+							"first_person": "(query.cooldown_time_remaining('slot.weapon.mainhand')>=0.01) || (query.is_on_ground == 1 && query.is_jumping == 0) || query.is_sprinting == 0"
+						}
+					],
+					"blend_transition": 0.14,
 					"blend_via_shortest_path": true
 				}
 			}

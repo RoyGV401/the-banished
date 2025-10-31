@@ -2,7 +2,7 @@
 	"format_version": "1.21.30",
 	"minecraft:item": {
 		"description": {
-			"identifier": "rev:brute_plasma_rifle",
+			"identifier": "rev:plasma_pistol_overheated",
 			"menu_category": {
 				"category": "equipment"
 			}
@@ -16,8 +16,8 @@
 				"tags": [
 					"rev:hold_animation_f",
 					"rev:banished",
-					"rev:heating={heating_score:'3',heating_cooldown:'5'}",
-					"rev:ammo={projectile:'rev:brute_plasma_rifle_bullet',power:'3.5',bloom:'6',sound:'rev.plasma_rifle_shot',damage:'1',burst_speed:'2', burst:'3', ammunition:'minecraft:diamond',amount:'1',reload:'1',capacity:'100',reload_sound:'mob.witch.throw'}"
+					"rev:heating={heating_score:'9'}",
+					"rev:ammo={projectile:'rev:plasma_pistol_bullet',bloom:'1', power:'3',sound:'rev.plasma_pistol_shot',damage:'1',burst_speed:'4', burst:'1', ammunition:'minecraft:diamond',amount:'1',reload:'1',capacity:'100',reload_sound:'mob.witch.throw'}"
 				]
 			},
 			"minecraft:use_modifiers": {
@@ -40,10 +40,10 @@
 			},
 			"minecraft:max_stack_size": 1,
 			"minecraft:hand_equipped": true,
-			"minecraft:rarity": "rare",
+			"minecraft:rarity": "uncommon",
 			"minecraft:icon": {
 				"textures": {
-					"default": "rev_brute_plasma_rifle"
+					"default": "rev_plasma_pistol"
 				}
 			},
 			"minecraft:durability": {

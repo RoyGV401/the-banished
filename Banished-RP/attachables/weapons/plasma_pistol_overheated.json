@@ -2,39 +2,52 @@
 	"format_version": "1.10.0",
 	"minecraft:attachable": {
 		"description": {
-			"identifier": "rev:pulse_carabine",
+			"identifier": "rev:plasma_pistol_overheated",
 			"materials": {
 				"default": "enderman",
 				"enchanted": "entity_alphatest_glint"
 			},
 			"textures": {
-				"default": "textures/models/plasma_rifle",
+				"default": "textures/models/plasma_pistol",
 				"enchanted": "textures/misc/enchanted_item_glint"
 			},
 			"geometry": {
-				"default": "geometry.plasma_rifle"
+				"default": "geometry.plasma_pistol"
+			},
+			"particle_effects":{
+				"smoke":"minecraft:campfire_smoke_particle"
 			},
 			"sound_effects": {
 				"open": "open.wooden_trapdoor",
 				"reload": "block.barrel.close",
+				"overheated": "rev.plasma_pistol_overheated",
+				"click": "rev.plasma_click",
 				"close": "close.wooden_trapdoor",
 				"pull": "mob.witch.throw",
 				"flick": "close.wooden_trapdoor"
 			},
 			"animations": {
 				"first_person": "animation.player.banished.first_person",
+				"first_person_aim": "animation.player.banished.first_person_aim",				"idle": "animation.player.banished.idle_basic",
 				"empty": "animation.player.banished.aim",
 				"reload": "animation.auto_gun.reload",
+				"overheated": "animation.plasma_pistol.overheating",
+				"overheated_start": "animation.plasma_pistol.overheating_start",
 				"reload_controller": "controller.animation.auto_gun.reload",
 				"aim_controller": "controller.animation.rev.aim",
 				"default": "animation.player.banished.third2",
 				"specific": "animation.auto_gun.specific",
 				"start": "animation.auto_gun.start",
 				"fire_controller": "controller.animation.musket.fire",
-				"fire": "animation.plasma_rifle_brute.fire"
+				"fire": "animation.plasma_pistol.fire"
 			},
 			"scripts": {
 				"animate": [
+					"idle",
+					{
+						"overheated": "c.is_first_person"
+					},
+					"overheated_start",
 					{
 						"specific": "c.is_first_person"
 					},
@@ -44,9 +57,10 @@
 					{
 						"first_person": "c.is_first_person && c.item_slot == 'main_hand'"
 					},
-					{
-						"fire_controller": "c.is_first_person"
+						{
+						"aim_controller": "c.is_first_person"
 					},
+				
 					{
 						"default": "!c.is_first_person && c.item_slot == 'main_hand'"
 					}

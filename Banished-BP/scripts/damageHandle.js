@@ -59,6 +59,8 @@ world.afterEvents.projectileHitEntity.subscribe(data=>{
 })
 
 
+
+
 server.system.runInterval(() => {
    const overworld = world.getDimension('minecraft:overworld');
    const entities = overworld.getEntities();

@@ -1,253 +1,238 @@
-import { ItemComponentConsumeEvent,world } from "@minecraft/server";
+import { ItemComponentConsumeEvent, world, ItemStack, EntityInventoryComponent } from "@minecraft/server";
 import * as server from "@minecraft/server";
 const shakeValues = [
     {
-        id:"rev:plasma_rifle",
+        id: "rev:plasma_rifle",
         shake: 0.2
     },
     {
-        id:"rev:brute_plasma_rifle",
+        id: "rev:brute_plasma_rifle",
         shake: 0.4
     },
     {
-        id:"rev:plasma_pistol",
+        id: "rev:plasma_pistol",
         shake: 0.3
     },
     {
-        id:"rev:human_plasma_rifle",
+        id: "rev:human_plasma_rifle",
         shake: 0.2
     },
     {
-        id:"rev:needler",
+        id: "rev:needler",
         shake: 0.2
     },
     {
-        id:"rev:pulse_carabine",
+        id: "rev:pulse_carabine",
         shake: 0.1
     }
 ]
 
 world.beforeEvents.worldInitialize.subscribe(initEvent => {
 
-  initEvent.itemComponentRegistry.registerCustomComponent('rev:gravity_hammer', {
-    onUse(arg) {
-        const playerData = arg.source;
-        playerData.playSound('ajolote.gravity_attack')
-        playerData.dimension.spawnEntity('ajolote:gravity_attack',playerData.location)
-        playerData.runCommand('camerashake add @s 0.5 0.9 rotational')
-        damageItem(playerData,4)
-    }
-  });
-
-  initEvent.itemComponentRegistry.registerCustomComponent('rev:shooter_component', {
-    onUse(arg) {
-        const playerData = arg.source;
-        const equipment = playerData.getComponent('equippable')
-        const item = equipment.getEquipment('Mainhand')
-        const tags = item.getTags()
-        for (let i = 0; i < tags.length ; i++)
-        {
-            const currentTag = tags[i];
-            const value = "rev:shooter";
-            if (currentTag.includes(value))
-            {
-                const projectileData = currentTag.substring(currentTag.indexOf('=') + 1);
-                const projectile = projectileData.split("projectile:'")[1].split("'")[0];
-                const power = projectileData.split("power:'")[1].split("'")[0];
-                const sound = projectileData.split("sound:'")[1].split("'")[0];
-                const damage = parseInt(projectileData.split("damage:'")[1].split("'")[0])
-
-                shootProjectile(world,playerData,projectile,power)
-                
-                playerData.playSound(sound,{location:playerData.location})
-                damageItem(playerData,damage)
-            }
-           
+    initEvent.itemComponentRegistry.registerCustomComponent('rev:gravity_hammer', {
+        onUse(arg) {
+            const playerData = arg.source;
+            playerData.playSound('ajolote.gravity_attack')
+            playerData.dimension.spawnEntity('ajolote:gravity_attack', playerData.location)
+            playerData.runCommand('camerashake add @s 0.5 0.9 rotational')
+            damageItem(playerData, 4)
         }
-    }
-  });
+    });
 
-  initEvent.itemComponentRegistry.registerCustomComponent('rev:ammo_component', {
-    onUse(arg) {
-        const playerData = arg.source;
-        const equipment = playerData.getComponent('equippable');
-        const item = equipment.getEquipment('Mainhand');
-        const inv = playerData?.getComponent('inventory').container;
-        const tags = item.getTags();
+    initEvent.itemComponentRegistry.registerCustomComponent('rev:shooter_component', {
+        onUse(arg) {
+            const playerData = arg.source;
+            const equipment = playerData.getComponent('equippable')
+            const item = equipment.getEquipment('Mainhand')
+            const tags = item.getTags()
+            for (let i = 0; i < tags.length; i++) {
+                const currentTag = tags[i];
+                const value = "rev:shooter";
+                if (currentTag.includes(value)) {
+                    const projectileData = currentTag.substring(currentTag.indexOf('=') + 1);
+                    const projectile = projectileData.split("projectile:'")[1].split("'")[0];
+                    const power = projectileData.split("power:'")[1].split("'")[0];
+                    const sound = projectileData.split("sound:'")[1].split("'")[0];
+                    const damage = parseInt(projectileData.split("damage:'")[1].split("'")[0])
 
-        for (let i = 0; i < tags.length; i++) {
-            const currentTag = tags[i];
-            const value = "rev:ammo";
-            if (currentTag.includes(value)) {
-                const projectileData = currentTag.substring(currentTag.indexOf('=') + 1);
-                const projectile = projectileData.split("projectile:'")[1].split("'")[0];
-                const power = projectileData.split("power:'")[1].split("'")[0];
-                const sound = projectileData.split("sound:'")[1].split("'")[0];
-                const damage = parseInt(projectileData.split("damage:'")[1].split("'")[0]);
-                const ammunition = projectileData.split("ammunition:'")[1].split("'")[0];
-                const amount = parseInt(projectileData.split("amount:'")[1].split("'")[0]);
-                const reloadAmount = parseInt(projectileData.split("reload:'")[1].split("'")[0]);
-                const capacity = parseInt(projectileData.split("capacity:'")[1].split("'")[0]);
-                const reloadSound = projectileData.split("reload_sound:'")[1].split("'")[0];
-                const burst = projectileData.split("burst:'")[1].split("'")[0];
-                const burstSpeed = projectileData.split("burst_speed:'")[1].split("'")[0];
-                const bloom = projectileData.split("bloom:'")[1].split("'")[0];
-                const homing = tags.includes('rev:homing') ? true : false;
-                const dim = playerData.dimension;
+                    shootProjectile(world, playerData, projectile, power)
 
-                let target = false;
-                if (homing)
-                {
-                    target = playerData?.getEntitiesFromViewDirection({ignoreBlockCollision:false})[0]?.entity; 
+                    playerData.playSound(sound, { location: playerData.location })
+                    damageItem(playerData, damage)
                 }
-                let bCount = 1;
-                if (item.getDynamicProperty('rev:is_overheated') == true) {
-                    return;
-                }
-                else if (item.getDynamicProperty('rev:shooter') == undefined) {
-                    playerData.playSound('random.click');
-                    item.setDynamicProperty('rev:shooter', capacity);
-                }
-                else {
-                    const currentCapacity = item.getDynamicProperty('rev:shooter');
-                    if (currentCapacity <= 0 || currentCapacity - amount < 0) {
-                        item.setDynamicProperty('rev:shooter', 0);
+
+            }
+        }
+    });
+
+    initEvent.itemComponentRegistry.registerCustomComponent('rev:ammo_component', {
+        onUse(arg) {
+            const playerData = arg.source;
+            const equipment = playerData.getComponent('equippable');
+            let item = equipment.getEquipment('Mainhand');
+            const inv = playerData?.getComponent('inventory').container;
+            const tags = item.getTags();
+
+            for (let i = 0; i < tags.length; i++) {
+                const currentTag = tags[i];
+                const value = "rev:ammo";
+                if (currentTag.includes(value)) {
+                    const projectileData = currentTag.substring(currentTag.indexOf('=') + 1);
+                    const projectile = projectileData.split("projectile:'")[1].split("'")[0];
+                    const power = projectileData.split("power:'")[1].split("'")[0];
+                    const sound = projectileData.split("sound:'")[1].split("'")[0];
+                    const damage = parseInt(projectileData.split("damage:'")[1].split("'")[0]);
+                    const ammunition = projectileData.split("ammunition:'")[1].split("'")[0];
+                    const amount = parseInt(projectileData.split("amount:'")[1].split("'")[0]);
+                    const reloadAmount = parseInt(projectileData.split("reload:'")[1].split("'")[0]);
+                    const capacity = parseInt(projectileData.split("capacity:'")[1].split("'")[0]);
+                    const reloadSound = projectileData.split("reload_sound:'")[1].split("'")[0];
+                    const burst = projectileData.split("burst:'")[1].split("'")[0];
+                    const burstSpeed = projectileData.split("burst_speed:'")[1].split("'")[0];
+                    const bloom = projectileData.split("bloom:'")[1].split("'")[0];
+                    const homing = tags.includes('rev:homing') ? true : false;
+                    const dim = playerData.dimension;
+                    //item = damageItem(playerData, damage, item);
+                    let target = false;
+                    if (homing) {
+                        target = playerData?.getEntitiesFromViewDirection({ ignoreBlockCollision: false })[0]?.entity;
+                    }
+                    let bCount = 1;
+                    if (item.getDynamicProperty('rev:is_overheated') == true) {
+                        return;
+                    }
+                    else if (item.getDynamicProperty('rev:shooter') == undefined) {
                         playerData.playSound('random.click');
-                        if (playerData.runCommand(`testfor @s[hasitem={item=${ammunition},quantity=${reloadAmount}..}]`).successCount > 0) {
-                            playerData.runCommand(`clear @s ${ammunition} 0 ${reloadAmount}`);
-                            playerData.dimension.playSound(reloadSound, playerData.location);
-                            item.setDynamicProperty('rev:shooter', capacity);
-                        }
+                        item.setDynamicProperty('rev:shooter', capacity);
                     }
                     else {
-                        const heatingValue = item?.getDynamicProperty('rev:heating_value') ?? 0;
-                        const heatingScore = item?.getDynamicProperty('rev:heating_score') ?? 1; // avoid div/0
-
-                        const shakeValue = shakeValues.find(s => s.id === item.typeId) ?? 0.0;
-
-                        let pitchModifier = 1 + ((heatingValue / heatingScore) * 0.4);
-                        if (pitchModifier > 1.5) pitchModifier = 1.5; 
-
-                        do {
-                            server.system.runTimeout(() => {
-                                shootProjectile(world, playerData, projectile, power, bloom, target, homing);
-                                playerData.runCommand(`camerashake add @s ${shakeValue.shake + ((heatingValue / heatingScore) * 0.4)} 0.2 positional`)
-                                playerData.dimension.playSound(sound, playerData.location, {
-                                    pitch: pitchModifier
-                                });
-                            }, (bCount - 1) * burstSpeed);
-                            bCount++;
+                        const currentCapacity = item.getDynamicProperty('rev:shooter');
+                        if (currentCapacity <= 0 || currentCapacity - amount < 0) {
+                            item.setDynamicProperty('rev:shooter', 0);
+                            playerData.playSound('random.click');
+                            if (playerData.runCommand(`testfor @s[hasitem={item=${ammunition},quantity=${reloadAmount}..}]`).successCount > 0) {
+                                playerData.runCommand(`clear @s ${ammunition} 0 ${reloadAmount}`);
+                                playerData.dimension.playSound(reloadSound, playerData.location);
+                                item.setDynamicProperty('rev:shooter', capacity);
+                            }
                         }
-                        while (bCount <= burst);
+                        else {
+                            const heatingValue = item?.getDynamicProperty('rev:heating_value') ?? 0;
+                            const heatingScore = item?.getDynamicProperty('rev:heating_score') ?? 1; // avoid div/0
 
-                        item.setDynamicProperty('rev:shooter', (currentCapacity - amount));
-                        damageItem(playerData, damage);
+                            const shakeValue = shakeValues.find(s => s.id === item.typeId) ?? 0.0;
+
+                            let pitchModifier = 1 + ((heatingValue / heatingScore) * 0.4);
+                            if (pitchModifier > 1.5) pitchModifier = 1.5;
+
+                            do {
+                                server.system.runTimeout(() => {
+                                    shootProjectile(world, playerData, projectile, power, bloom, target, homing);
+                                    playerData.runCommand(`camerashake add @s ${(playerData.isSneaking? shakeValue.shake/2 : shakeValue.shake) + ((heatingValue / heatingScore) * 0.4)} 0.2 positional`)
+                                    playerData.dimension.playSound(sound, playerData.location, {
+                                        pitch: pitchModifier
+                                    });
+                                }, (bCount - 1) * burstSpeed);
+                                bCount++;
+                            }
+                            while (bCount <= burst);
+
+                            item.setDynamicProperty('rev:shooter', (currentCapacity - amount));
+                        }
                     }
+                        inv.setItem(playerData.selectedSlotIndex, item);
+
+
                 }
-                inv.setItem(playerData.selectedSlotIndex, item);
             }
         }
-    }
-});
+    });
 
 
-  initEvent.itemComponentRegistry.registerCustomComponent('rev:over_heating', {
-    onUse(arg) {
-        const playerData = arg.source;
-        const equipment = playerData.getComponent('equippable')
-        const item = equipment.getEquipment('Mainhand')
-        const inv = playerData?.getComponent('inventory').container
-        const tags = item.getTags()
-        for (let i = 0; i < tags.length ; i++)
-        {
-            const currentTag = tags[i];
-            const value = "rev:heating";
-            if (currentTag.includes(value))
-            {
-                const projectileData = currentTag.substring(currentTag.indexOf('=') + 1);
-                const heatingScore = projectileData.split("heating_score:'")[1].split("'")[0];
+    initEvent.itemComponentRegistry.registerCustomComponent('rev:over_heating', {
+        onUse(arg) {
+            const playerData = arg.source;
+            const equipment = playerData.getComponent('equippable')
+            const item = equipment.getEquipment('Mainhand')
+            const inv = playerData?.getComponent('inventory').container
+            const tags = item.getTags()
+            for (let i = 0; i < tags.length; i++) {
+                const currentTag = tags[i];
+                const value = "rev:heating";
+                if (currentTag.includes(value)) {
+                    const projectileData = currentTag.substring(currentTag.indexOf('=') + 1);
+                    const heatingScore = projectileData.split("heating_score:'")[1].split("'")[0];
 
 
-                let bCount = 1;
+                    let bCount = 1;
 
-                if (item.getDynamicProperty('rev:is_overheated') == undefined) item.setDynamicProperty('rev:is_overheated',false)
-                
-                if (item.getDynamicProperty('rev:heating_value') == undefined)
-                {
-                    playerData.playSound('random.click')
-                    item.setDynamicProperty('rev:heating_value',0);
-                    item.setDynamicProperty('rev:heating_score',heatingScore);
-                }
-                else if (item.getDynamicProperty('rev:is_overheated') == false)
-                {
-                    let heatingValue = item.getDynamicProperty('rev:heating_value');
-                    if (heatingValue >= heatingScore)
-                    {
-                        item.setDynamicProperty('rev:is_overheated',true);
-                        playerData.sendMessage('Your weapon is overheated')
+                    if (item.getDynamicProperty('rev:is_overheated') == undefined) item.setDynamicProperty('rev:is_overheated', false)
+
+                    if (item.getDynamicProperty('rev:heating_value') == undefined) {
+                        playerData.playSound('random.click')
+                        item.setDynamicProperty('rev:heating_value', 0);
+                        item.setDynamicProperty('rev:heating_score', heatingScore);
                     }
-                    if (heatingValue>=0 && heatingValue <= heatingScore)
-                    {
-                        heatingValue++;
-                        item.setDynamicProperty('rev:heating_value',heatingValue);
+                    else if (item.getDynamicProperty('rev:is_overheated') == false) {
+                        let heatingValue = item.getDynamicProperty('rev:heating_value');
+                        if (heatingValue >= heatingScore) {
+                            item.setDynamicProperty('rev:is_overheated', true);
+                            itemReplace(playerData, item, `${item.typeId}_overheated`);
+                        }
+                        if (heatingValue >= 0 && heatingValue <= heatingScore) {
+                            heatingValue++;
+                            item.setDynamicProperty('rev:heating_value', heatingValue);
+                        }
                     }
-                    //world.sendMessage('Hola '+heatingValue)
+                    inv.setItem(playerData.selectedSlotIndex, item);
                 }
-                inv.setItem(playerData.selectedSlotIndex, item);
+
             }
-           
         }
-    }
-  });
+    });
 });
 
-function damageItem (player,damage){
+function damageItem(player, damage, item) {
     const equipment = player.getComponent('equippable');
-    const item = equipment.getEquipment('Mainhand');
     const dmg = damage;
 
-        const inv = player?.getComponent('inventory').container
-        const durability = item?.getComponent('durability')
-        const enchant = item?.getComponent("minecraft:enchantable")?.getEnchantments().map((e) => e.type);
-        const unbreaking = enchant?.includes("unbreaking")
-        const level = unbreaking?.level
+    const inv = player?.getComponent('inventory').container
+    const durability = item?.getComponent('durability')
+    const enchant = item?.getComponent("minecraft:enchantable")?.getEnchantments().map((e) => e.type);
+    const unbreaking = enchant?.includes("unbreaking")
+    const level = unbreaking?.level
 
-        if (item && durability) {
+    if (item && durability) {
 
-            if ((durability.maxDurability - durability.damage - dmg) <= 0) {
-                inv.setItem(player.selectedSlotIndex);
-                player.playSound('random.break')
-            }
-            
-            if (item && !unbreaking) {
-                durability.damage += dmg;
-                inv.setItem(player.selectedSlotIndex, item);
-            }
-            if (item && level == 1) {
-                console.warn(Math.round(Math.random(1 / (1 + 1)) * 1))
-                durability.damage += Math.round(Math.random(1 / (1 + 1)) * dmg);
-                inv.setItem(player.selectedSlotIndex, item);
-            }
-            if (item && level == 2) {
-                console.warn(Math.round(Math.random(1 / (2 + 1)) * 1))
-                durability.damage += Math.round(Math.random(1 / (2 + 1)) * dmg);
-                inv.setItem(player.selectedSlotIndex, item);
-            }
-            if (item && level == 3) {
-                console.warn(Math.round(Math.random(1 / (3 + 1)) * 1))
-                durability.damage += Math.round(Math.random(1 / (4 + 1)) * dmg);
-                inv.setItem(player.selectedSlotIndex, item);
-            }
-
-           
-           
+        if ((durability.maxDurability - durability.damage - dmg) <= 0) {
+            inv.setItem(player.selectedSlotIndex);
+            player.playSound('random.break')
         }
-    
+
+        if (item && !unbreaking) {
+            durability.damage += dmg;
+            server.system.run(() => { inv.setItem(player.selectedSlotIndex, item); });
+        }
+        if (item && level == 1) {
+            console.warn(Math.round(Math.random(1 / (1 + 1)) * 1))
+            durability.damage += Math.round(Math.random(1 / (1 + 1)) * dmg);
+        }
+        if (item && level == 2) {
+            console.warn(Math.round(Math.random(1 / (2 + 1)) * 1))
+            durability.damage += Math.round(Math.random(1 / (2 + 1)) * dmg);
+        }
+        if (item && level == 3) {
+            console.warn(Math.round(Math.random(1 / (3 + 1)) * 1))
+            durability.damage += Math.round(Math.random(1 / (4 + 1)) * dmg);
+        }
+    }
+
+    return item
+
 }
 
-function shootProjectile(world,playerData,projectile,power,bloom,target, doHoming)
-{
-   
+function shootProjectile(world, playerData, projectile, power, bloom, target, doHoming) {
+    const trueBloom = playerData.isSneaking ? bloom/2 : bloom;
     const projectileToShoot = world.getDimension(playerData.dimension.id).spawnEntity(projectile, {
         x: playerData.location.x + (playerData.getViewDirection().x * 1.2),
         y: playerData.location.y + 1.3 + (playerData.getViewDirection().y * 1.2),
@@ -259,11 +244,37 @@ function shootProjectile(world,playerData,projectile,power,bloom,target, doHomin
         x: playerData.getViewDirection().x * power,
         y: playerData.getViewDirection().y * power,
         z: playerData.getViewDirection().z * power
-    }, {uncertainty:parseInt(bloom)})
+    }, { uncertainty: parseInt(trueBloom) })
 
-    if (target != false && target != undefined && doHoming == true)
-    {
-        projectileToShoot.setDynamicProperty('rev:homing_target',target.id)
+    if (target != false && target != undefined && doHoming == true) {
+        projectileToShoot.setDynamicProperty('rev:homing_target', target.id)
     }
 
+}
+
+
+function itemReplace(playerData, heldItem, targetItem) {
+
+    if (heldItem.typeId == targetItem) return;
+    const inventory = playerData.getComponent(EntityInventoryComponent.componentId).container;
+    const enchantArray = heldItem.getComponent("enchantable")?.getEnchantments();
+    const itemReplacement = new ItemStack(targetItem)
+
+    const dynamicProperties = heldItem.getDynamicPropertyIds()
+    if (enchantArray) itemReplacement.getComponent("enchantable").addEnchantments(enchantArray);
+    itemReplacement.getComponent('durability').damage = heldItem.getComponent("durability").damage;
+    itemReplacement.nameTag = heldItem.nameTag;
+    itemReplacement.setLore(heldItem.getLore())
+    for (let i = 0; i < dynamicProperties.length; i++) {
+        const currentPropertyValue = heldItem.getDynamicProperty(dynamicProperties[i])
+        itemReplacement.setDynamicProperty(dynamicProperties[i], currentPropertyValue)
+    }
+    heldItem = itemReplacement;
+    server.system.run(() => {
+        world.sendMessage('MATATe')
+        inventory.setItem(playerData.selectedSlotIndex, heldItem)
+
+    })
+    world.sendMessage('There was a' + itemReplacement.typeId)
+    world.sendMessage('There was an attempt')
 }

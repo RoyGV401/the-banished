@@ -16,8 +16,13 @@
 					"pivot": [0, 0, 0]
 				},
 				{
-					"name": "bone2",
+					"name": "crosshair_all",
 					"parent": "head",
+					"pivot": [0, 3.9, -115]
+				},
+				{
+					"name": "bone2",
+					"parent": "crosshair_all",
 					"pivot": [-5.5, 3.9, -115],
 					"cubes": [
 						{"origin": [-11, -1.6, -115], "size": [11, 11, 0], "uv": [0, 11]}
@@ -25,7 +30,7 @@
 				},
 				{
 					"name": "bone",
-					"parent": "head",
+					"parent": "crosshair_all",
 					"pivot": [5.5, 3.9, -115],
 					"cubes": [
 						{"origin": [0, -1.6, -115], "size": [11, 11, 0], "uv": [0, 22]}
@@ -40,7 +45,12 @@
 					"name": "musket",
 					"parent": "rightitem",
 					"pivot": [-8.90074, 1.59756, 0.12567],
-					"rotation": [0, 0, 17.5],
+					"rotation": [0, 0, 17.5]
+				},
+				{
+					"name": "rifle",
+					"parent": "musket",
+					"pivot": [-8.90074, 1.59756, 0.12567],
 					"cubes": [
 						{
 							"origin": [-11, 1, -1.86433],
@@ -264,7 +274,7 @@
 				},
 				{
 					"name": "spike6",
-					"parent": "musket",
+					"parent": "rifle",
 					"pivot": [-8.4036, 9.22842, 1.37567],
 					"rotation": [0, 0, -35],
 					"cubes": [
@@ -284,7 +294,7 @@
 				},
 				{
 					"name": "spike5",
-					"parent": "musket",
+					"parent": "rifle",
 					"pivot": [-8.4036, 9.22842, 1.87567],
 					"rotation": [0, 0, -35],
 					"cubes": [
@@ -304,7 +314,7 @@
 				},
 				{
 					"name": "spike2",
-					"parent": "musket",
+					"parent": "rifle",
 					"pivot": [-4.35998, 8.22937, 1.42567],
 					"rotation": [0, 0, -35],
 					"cubes": [
@@ -324,7 +334,7 @@
 				},
 				{
 					"name": "spike1",
-					"parent": "musket",
+					"parent": "rifle",
 					"pivot": [-4.35998, 8.22937, -1.12433],
 					"rotation": [0, 0, -35],
 					"cubes": [
@@ -344,7 +354,7 @@
 				},
 				{
 					"name": "spike8",
-					"parent": "musket",
+					"parent": "rifle",
 					"pivot": [-10.4036, 9.22842, 0.8],
 					"rotation": [0, 0, -35],
 					"cubes": [
@@ -364,7 +374,7 @@
 				},
 				{
 					"name": "spike7",
-					"parent": "musket",
+					"parent": "rifle",
 					"pivot": [-10.4036, 9.22842, 0.8],
 					"rotation": [0, 0, -35],
 					"cubes": [
@@ -384,7 +394,7 @@
 				},
 				{
 					"name": "spike4",
-					"parent": "musket",
+					"parent": "rifle",
 					"pivot": [-6.4036, 9.22842, 0.8],
 					"rotation": [0, 0, -35],
 					"cubes": [
@@ -404,7 +414,7 @@
 				},
 				{
 					"name": "spike3",
-					"parent": "musket",
+					"parent": "rifle",
 					"pivot": [-6.4036, 9.22842, -0.37433],
 					"rotation": [0, 0, -35],
 					"cubes": [

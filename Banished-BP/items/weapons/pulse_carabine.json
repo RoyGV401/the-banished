@@ -22,7 +22,7 @@
 				]
 			},
 			"minecraft:use_modifiers": {
-				"movement_modifier": 1,
+				"movement_modifier": 1.0,
 				"use_duration": 0
 			},
 			"minecraft:cooldown": {

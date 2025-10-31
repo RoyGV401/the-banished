@@ -19,9 +19,10 @@
 			},
 			"animations": {
 				"first_person": "animation.player.banished.first_person",
-				"idle": "animation.player.banished.idle_basic",
+				"first_person_aim": "animation.player.banished.first_person_aim",				"idle": "animation.player.banished.idle_basic",
 				"reload": "animation.auto_gun.reload",
 				"reload_controller": "controller.animation.auto_gun.reload",
+				"aim_controller": "controller.animation.rev.aim",
 				"default": "animation.player.banished.third2",
 				"specific": "animation.auto_gun.specific",
 				"start": "animation.needler.start",
@@ -43,6 +44,9 @@
 					},
 					{
 						"first_person": "c.is_first_person && c.item_slot == 'main_hand'"
+					},
+						{
+						"aim_controller": "c.is_first_person"
 					},
 					{
 						"fire_controller": "c.is_first_person"

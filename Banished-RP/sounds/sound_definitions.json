@@ -21,6 +21,16 @@
 			"sounds": [
 				"sounds/plasma_pistol_shot"
 			]
+		},
+		"rev.plasma_pistol_overheated": {
+			"sounds": [
+				"sounds/plasma_pistol_overheated"
+			]
+		},
+		"rev.plasma_click": {
+			"sounds": [
+				"sounds/plasma_click"
+			]
 		}
 	}
 }

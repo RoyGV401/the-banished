@@ -2,7 +2,7 @@
 	"format_version": "1.21.30",
 	"minecraft:item": {
 		"description": {
-			"identifier": "rev:brute_plasma_rifle",
+			"identifier": "rev:brute_plasma_rifle_overheated",
 			"menu_category": {
 				"category": "equipment"
 			}

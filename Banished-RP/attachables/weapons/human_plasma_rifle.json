@@ -26,6 +26,7 @@
 				"empty": "animation.player.banished.aim",
 				"reload": "animation.auto_gun.reload",
 				"reload_controller": "controller.animation.auto_gun.reload",
+				"aim_controller": "controller.animation.rev.aim",
 				"default": "animation.player.banished.third2",
 				"specific": "animation.auto_gun.specific",
 				"start": "animation.auto_gun.start",
